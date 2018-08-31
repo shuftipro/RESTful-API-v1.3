@@ -218,42 +218,42 @@ Some of these parameters are necessarily required while others are optional.
 
 	In name object used in document service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
-		* <h4>first_name</h4>
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters** 
- 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John'O Harra**
+	* <h4>first_name</h4>
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters** 
 
-		* <h4>middle_name</h4>
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John'O Harra**
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	* <h4>middle_name</h4>
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
-		Example **Carter-Joe**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		* <h4>last_name</h4>
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
+	Example **Carter-Joe**
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	* <h4>last_name</h4>
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John, Huricane Jr.**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		* <h4>fuzzy_match</h4>
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John, Huricane Jr.**
 
-		Required: **No**  
-		Type: **string**  
-		Value Accepted: **1**
+	* <h4>fuzzy_match</h4>
 
-		Provide 1 for enabling a fuzzy match of the name.
+	Required: **No**  
+	Type: **string**  
+	Value Accepted: **1**
+
+	Provide 1 for enabling a fuzzy match of the name.
 
 	* <h3>dob</h3>
 
@@ -336,43 +336,43 @@ Some of these parameters are necessarily required while others are optional.
 
 	In name object used in address service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
-		* <h4>first_name</h4>
+	* <h4>first_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John'O Harra**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John'O Harra**
 
-		* <h4>middle_name</h4>
+	* <h4>middle_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
-		Example **Carter-Joe**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
+	Example **Carter-Joe**
 
-		* <h4>last_name</h4>
+	* <h4>last_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John, Huricane Jr.**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John, Huricane Jr.**
 
-		* <h4>fuzzy_match</h4>
+	* <h4>fuzzy_match</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Value Accepted: **1**
+	Required: **No**  
+	Type: **string**  
+	Value Accepted: **1**
 
-		Provide 1 for enabling a fuzzy match of the name.
+	Provide 1 for enabling a fuzzy match of the name.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
@@ -455,35 +455,35 @@ Some of these parameters are necessarily required while others are optional.
 
 	In name object used in background checks service, first_name and last_name is required and other fields are optional.
 
-		* <h4>first_name</h4>
+	* <h4>first_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John'O Harra**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John'O Harra**
 
-		* <h4>middle_name</h4>
+	* <h4>middle_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
-		Example **Carter-Joe**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
+	Example **Carter-Joe**
 
-		* <h4>last_name</h4>
+	* <h4>last_name</h4>
 
-		Required: **No**  
-		Type: **string**  
-		Minimum: **2 characters**  
-		Maximum: **32 chracters**
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **32 chracters**
 
-		Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-		Example **John, Huricane Jr.**
+	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+	Example **John, Huricane Jr.**
 
 	* <h3>dob</h3>
 
