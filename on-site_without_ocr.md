@@ -480,7 +480,7 @@ Some of these parameters are necessarily required while others are optional.
 
 ```json
 POST /HTTP/1.1  
-Host: https://shuftipro.com/api/status
+Host: https://shuftipro.com/api/status/
   Content-Type: application/json
   Authorization: Basic    
 

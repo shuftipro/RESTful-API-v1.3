@@ -31,7 +31,7 @@ Consult [This Document](off-site_with_ocr.md) for complete Off-site Verification
 If Merchant gives us the data in keys as well as all the proofs required then Shufti Pro just have to verify the data. No customer interaction takes place in this kind of verification.
 Consult [This Document](off-site_without_ocr.md) for complete Off-site Verification without OCR.
 
-	*In off-site verification without OCR, merchant collects ALL the information from the user and sends it to us. We just have to verify that information.*
+*In off-site verification without OCR, merchant collects ALL the information from the user and sends it to us. We just have to verify that information.*
 
 # Authorization
 
@@ -536,7 +536,7 @@ request received from you.*
 
 ```json
 POST /HTTP/1.1  
-Host: https://shuftipro.com/api/status
+Host: https://shuftipro.com/api/status/
   Content-Type: application/json
   Authorization: Basic    
 
