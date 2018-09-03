@@ -464,7 +464,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api/status/
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {      
 	"reference" : "17374217"

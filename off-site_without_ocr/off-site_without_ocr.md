@@ -482,7 +482,7 @@ All keys are optional. Please make sure that values are provided with the provid
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api/status/
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {      
 	"reference" : "17374217"
@@ -577,28 +577,6 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
 # HTTP Status Codes and Events
 
 Instant Capture & Verification API uses conventional HTTP response codes to indicate the success or failure of an API request. Every response is generated in JSON with a specific HTTP code. Go to [Status Codes](status_codes.md) for a complete list of status codes. Events are sent in responses which show the status of request. These events are sent in both HTTP and callback responses. Please consult [Events](status_codes.md#events) for a complete list of events.
-
-
-# Supported Browsers and Devices
-
-In case of on-site verification, a verification page is shown to users. This page is supported on the following list of browsers.
-
-
-Browsers                  |  Minimum Version/SDK  
----------                 | --------------------  
-Chrome (Recommended)      | 65
-Firefox (Recommended)     | 58
-Safari                    | 8 
-Opera                     | 52
-Internet Explorer         | 11 
-Edge                      | 16
-
-Here a list of supported operating systems on mobile devices.
-
-Mobile OS                 |  Minimum Version/SDK  
----------                 | --------------------  
-Android                   | 6.0 (Marshmallow)
-iOS                       | 10
 
 # Revision History
 

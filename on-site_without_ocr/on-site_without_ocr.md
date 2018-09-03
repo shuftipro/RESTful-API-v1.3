@@ -474,7 +474,7 @@ All keys are optional. Please make sure that values are provided with the provid
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api/status/
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {      
 	"reference" : "17374217"
