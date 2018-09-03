@@ -1,9 +1,10 @@
 [![](https://raw.githubusercontent.com/shuftipro/ShuftiProSDK/master/shufti_pro_sdk.png)](https://www.shuftipro.com/)
 
-# Introduction
+# On-site Verification without OCR
 
-This service pack includes information relevant to Off-site Verification without OCR, only.
-Off-site Verification is performed by the data provided by you (the Merchant) to Shufti Pro. The end-user has already provided the image/video proofs and the textual information to verify (keys along with values) to you, and you forward this information to Shufti Pro for verification. No interaction between end-user and Shufti Pro is required in case of off-site verification. In this kind of verification, you only make a single call to our API with the data or information (document, personalised note, image of user etc.) that you want to verify. 
+This *Onsite verification without OCR* requires direct interaction between the provider and the end-user. We collect the image or video proofs from end-users. Merchant collects the values for selected parameters from the end-user. In the verification request, Merchant specifies the keys and values for the parameters to be verified. Shufti Pro uses a unique *template matching technique* to match these values to the data on identity documents. Next, Shufti Pro’s intelligently driven system verifies the collected documents for authenticity.
+
+**Shufti Pro’s AI & HI hybrid technology ensures 99.6% accurate results and quickest response time.**
 
 # Authorization
 
@@ -14,11 +15,9 @@ Fields               | Required | Description
 username             | Yes      | Enter Client ID as username.
 password             | Yes      | Enter your Secret Key as password.
 
-
-
 # Verification Request Example
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a7bedd4c36956cd7c25)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7685361fe51b9053c8f1)
 
 ```json
 POST /HTTP/1.1  
@@ -37,8 +36,8 @@ Host: https://shuftipro.com/api
 	"verification_mode": "any",
 
 	"document": { 
-		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
-		"additional_proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
+		"proof": "", 
+		"additional_proof": "", 
 		"supported_types": [
 			"passport", 
 			"id_card", 
@@ -57,7 +56,7 @@ Host: https://shuftipro.com/api
 	},  
 
 	"address":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
+		"proof":"" ,
 		"full_address":"3339 Maryland Avenue, Largo, Florida", 
 		"name": { 
 			"first_name": "John", 
@@ -73,10 +72,16 @@ Host: https://shuftipro.com/api
 	},
 
 	"consent":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
+		"proof":"" ,
 		"format":"printed", 
 		"text":"This is a customized text", 
 	}, 
+
+	"phone": {
+		"phone_number": "+4400000000",
+		"random_code": "23123",
+		"text": "Your verification code is 23123"
+	},
 
 	"background_checks": {
 		"name": { 
@@ -92,7 +97,7 @@ Host: https://shuftipro.com/api
 
 # Verification Request
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a7bedd4c36956cd7c25)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7685361fe51b9053c8f1)
 
 Whenever a request for verification from a user is received, Shufti Pro’s intelligent system determines the nature of verification through parameters given below. These parameters enable Shufti Pro to:
 
@@ -104,23 +109,22 @@ Whenever a request for verification from a user is received, Shufti Pro’s inte
 
 4. Decide what information is being sent to perform that verification 
 
-Some of these parameters are necessarily required while others are optional.
+# Request Parameters
+
+It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
+
+All keys are optional. Please make sure that values are provided with the provided keys. 
 
 * ## reference
 
-	Required: **Yes**  
-	Type: **string**  
-	Minimum: **6 characters**  
-	Maximum: **250 characters**
+	Required: **Yes** Type: **string** Minimum: **6 characters** Maximum: **250 characters**
 
 	This is the unique reference ID of request, which we will send you back with each response, so you can verify the request. Only alphanumeric values are allowed. This reference can be used to get status of already performed verification requests.
 
 
 * ## country
 
-	Required: **Yes**  
-	Type: **string**  
-	Length: **2 characters**
+	Required: **Yes** Type: **string** Length: **2 characters**
 
 	Send the 2 characters long [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country code of where your customer is from. Please consult [Supported Countries](countries.md) for country codes.
 
@@ -130,11 +134,11 @@ Some of these parameters are necessarily required while others are optional.
 	Type: **string**  
 	Length: **2 characters**
 
-	Send the 2 characters long language code of your preferred language to display the verification screens accordingly. Please consult [Supported Languages](languages.md) for language codes.
+	Send the 2 characters long language code of your preferred language to display the verification screens accordingly. Please consult [Supported Languages](languages.md) for language codes. Default language english will be selected if this key is missing in the request.
 
 * ## email
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **6 characters**  
 	Maximum: **128 characters**
@@ -150,13 +154,22 @@ Some of these parameters are necessarily required while others are optional.
 
 	During a verification request, we make several server to server calls to keep you updated about the verification state. This way you can update the request status at your end even if the customer is lost midway through the process.
 
+* ## redirect_url
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **6 characters**  
+	Maximum: **250 characters**
+
+	Once an on-site verification is complete, User is redirected to this link after showing the results.
+
 * ## verification_mode
 
 	Required: **No**  
 	Type: **string**  
 	Accepted Values: **any, image_only, video_only**
 
-	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' mode, you can only send base64 of videos where format should be MP4 or MOV in proofs. In 'any' mode mixture of images and videos can be provided in proofs.
+	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' user will upload videos and images if verification mode is 'image_only'.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
@@ -165,7 +178,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -181,7 +194,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -219,10 +232,10 @@ Some of these parameters are necessarily required while others are optional.
 	Required: **No**  
 	Type: **object**
 
-	In name object used in document service, first_name and last_name is required and other fields are optional.
+	In name object used in document service, first_name and last_name is required if you want to perform a name verification from a document. Other fields are optional. All services having name fields include the following parameters.
 
 	* <h4>first_name</h4>
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters** 
@@ -242,7 +255,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h4>last_name</h4>
 
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -253,7 +266,7 @@ Some of these parameters are necessarily required while others are optional.
 	* <h4>fuzzy_match</h4>
 
 	Required: **No**  
-	Type: **string**  
+	Type: **string** 
 	Value Accepted: **1**
 
 	Provide 1 for enabling a fuzzy match of the name.
@@ -271,7 +284,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters** 
+	Minimum: **2 characters**  
 	Maximum: **100 chracters**
 
 	Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores and commas. 
@@ -298,18 +311,19 @@ Some of these parameters are necessarily required while others are optional.
 <!-- -------------------------------------------------------------------------------- -->
 * ## address
 
-	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. Supported document formats include: ID cards, passports, driving licenses and utility bills. You can opt more than 1 document format to perform address verification.
+	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. 
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	* <h3>supported_types</h3>
 
-	Required: **Yes** Type: **Array**
+	Required: **Yes**  
+	Type: **Array**
 
 	Provide any one, two or more document types in proof parameter in Address verification service. For example, if you choose id_card and utility_bill, then the user will be able to verify data using either of these two documents. **Please provide only one document type if you are providing proof of that document with the request**. Following is the list of supported types for address verification.
 
@@ -324,7 +338,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>full_address</h3>
 
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **250 chracters**
@@ -336,11 +350,11 @@ Some of these parameters are necessarily required while others are optional.
 	Required: **No**  
 	Format **object**
 
-	In name object used in address service, first_name and last_name is required and other fields are optional.
+	In name object used in address service, first_name and last_name is required if name verification is required. Other fields are optional. All services having name fields include the following parameters.
 
 	* <h4>first_name</h4>
 
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -360,7 +374,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h4>last_name</h4>
 
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -372,7 +386,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	Required: **No**  
 	Type: **string**  
-	Value Accepted: **1**
+	Values Accepted: **1**
 
 	Provide 1 for enabling a fuzzy match of the name.
 
@@ -383,7 +397,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -414,13 +428,45 @@ Some of these parameters are necessarily required while others are optional.
 	Provide text in the string format which will be verified from a given proof.
 
 <!-- -------------------------------------------------------------------------------- -->
+* ## phone
+
+	Verify the phone number of end-users by sending a random code to their number from Shufti Pro. Once the sent code is entered into the provided field by end-user, phone number will stand verified. It is primarily an on-site verification and you have to provide phone number of the end-user to us, in addition to the verification code and the message that is to be forwarded to the end-user. Shufti Pro will be responsible only to send the message along with verification code to the end user and verify the code entered by the end-user.
+
+	* <h3>phone_number</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **64 chracters**
+
+	Allowed Characters: numbers and plus sign at the beginning. Provide a valid customer’s phone number with country code. Shufti Pro will directly ask the end-user for phone number if this field is missing or empty.
+
+	* <h3>random_code</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **64 chracters**
+
+	Provide a random code. If this field is missing or empty. Shufti Pro will generate a random code.
+
+	* <h3>text</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **100 chracters**
+
+	Provide a short description and random code in this field. This message will be sent to customers. ***This field should contain random_code***. If random_code field is empty than Shufti Pro will generate a random code and append the code with this message at the end.
+
+<!-- -------------------------------------------------------------------------------- -->
 * ## background_checks
 
-	Background checks is an off-site verification process that will require you to send us the Full Name of end user in addition to Date of Birth. Shufti Pro will perform AML based background checks based on this information.
+	It is a verification process that will require you to send us the full Name of end user in addition to date of birth. Shufti Pro will perform AML based background checks based on this information. Name and dob keys are requied if these keys are not provided in a dcoument verification. 
 
 	* <h3>name</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Format: **object**
 
 	In name object used in background checks service, first_name and last_name is required and other fields are optional.
@@ -458,7 +504,7 @@ Some of these parameters are necessarily required while others are optional.
 	* <h3>dob</h3>
 
 	Required: **Yes**  
-	Type: **string** 
+	Type: **string**  
 	Format: **yyyy-mm-dd**
 
 	Provide a valid date. Please note that the date should be before today. 
@@ -516,7 +562,13 @@ The Shufti Pro Verification API will send you two types of responses if a reques
 	A URL is generated for your customer to verify there documents. It is only generated in case of on-site request.  
 
 * <h3>verification_result</h3>
-	It is only returned in case of a valid verification. This includes results of each verification. <br/> 1 means **accepted** <br/> 0 means **declined**.<br/> null means **not processed**. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
+	It is only returned in case of a valid verification. This includes results of each verification.  
+
+	1 means **accepted**  
+	0 means **declined**  
+	null means **not processed**  
+
+	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
 	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
@@ -575,7 +627,7 @@ Chrome (Recommended)      | 65
 Firefox (Recommended)     | 58
 Safari                    | 8 
 Opera                     | 52
-Internet Explorer         | 10 
+Internet Explorer         | 11 
 Edge                      | 16
 
 Here a list of supported operating systems on mobile devices.

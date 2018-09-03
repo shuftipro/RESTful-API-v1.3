@@ -1,9 +1,10 @@
 [![](https://raw.githubusercontent.com/shuftipro/ShuftiProSDK/master/shufti_pro_sdk.png)](https://www.shuftipro.com/)
 
-# Introduction
+# On-site Verification with OCR
 
-This service pack includes information relevant to Off-site Verification without OCR, only.
-Off-site Verification is performed by the data provided by you (the Merchant) to Shufti Pro. The end-user has already provided the image/video proofs to you, and you forward this information to Shufti Pro for verification. Shufti Pro performs OCR on the provided proofs, extracts the data and perform verification. No interaction between end-user and Shufti Pro is required in case of off-site verification. In this kind of verification, you only make a single call to our API with the image/video proofs and keys only for the data or information (document, consent, image of user etc.) that you want to verify.
+This *Onsite verification with OCR* requires direct interaction between the provider and the end-user. We collect the image or video proofs from end-users. In the verification request, Merchant specifies the keys for the parameters to be verified. Shufti Pro extracts the values against each of those keys from the proofs presented by the end-user. These values can also be returned to fill the verification form automatically. This reduces the manual work for the end-user. Next, Shufti Pro’s intelligently driven system verifies the provided documents for authenticity.
+
+**Shufti Pro’s AI & HI hybrid technology ensures 99.6% accurate results and quickest response time.**
 
 # Authorization
 
@@ -14,9 +15,11 @@ Fields               | Required | Description
 username             | Yes      | Enter Client ID as username.
 password             | Yes      | Enter your Secret Key as password.
 
+
+
 # Verification Request Example
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e3d60f9e022c195aac7d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f9cb1f75585d7d2c13fb)
 
 ```json
 POST /HTTP/1.1  
@@ -35,19 +38,14 @@ Host: https://shuftipro.com/api
 	"verification_mode": "any",
 
 	"document": { 
-		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
-		"additional_proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
+		"proof": "", 
 		"supported_types": [
 			"passport", 
 			"id_card", 
 			"driving_license", 
 			"credit_or_debit_card"
 		] ,
-		"name": { 
-			"first_name": "", 
-			"last_name": "", 
-			"middle_name": "" ,
-		}, 
+		"name": "",
 		"dob": "", 
 		"document_number": "", 
 		"expiry_date": "", 
@@ -55,13 +53,9 @@ Host: https://shuftipro.com/api
 	},  
 
 	"address":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
-		"full_address":"3339 Maryland Avenue, Largo, Florida", 
-		"name": { 
-			"first_name": "", 
-			"last_name": "", 
-			"middle_name": "" ,
-		}, 
+		"proof":"" ,
+		"full_address":"", 
+		"name": "",
 		"supported_types":[
 			"id_card", 
 			"utiltiy_bill", 
@@ -70,37 +64,40 @@ Host: https://shuftipro.com/api
 	},
 
 	"consent":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
+		"proof":"" ,
 		"format":"printed", 
 		"text":"This is a customized text", 
 	}, 
 
+	"phone": {
+		"phone_number": "+4400000000",
+		"random_code": "23123",
+		"text": "Your verification code is 23123"
+	},
+
 	"background_checks": {
-		"name": { 
-			"first_name": "John", 
-			"last_name": "Carter", 
-			"middle_name": "Doe" ,
-		}, 
-		"dob": "1992-10-10", 
+		"name": "",
+		"dob": "", 
 	}
 }
 ```
 
 # Verification Request
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e3d60f9e022c195aac7d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f9cb1f75585d7d2c13fb)
 
 Whenever a request for verification from a user is received, Shufti Pro’s intelligent system determines the nature of verification through parameters given below. These parameters enable Shufti Pro to:
 
 1. Identify its customers
-
 2. Check authenticity of client’s credentials
-
 3. Read client’s data
-
 4. Decide what information is being sent to perform that verification 
 
-Some of these parameters are necessarily required while others are optional.
+# Request Parameters
+
+It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
+
+All keys are optional. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
 
 * ## reference
 
@@ -122,15 +119,15 @@ Some of these parameters are necessarily required while others are optional.
 
 * ## language
 
-	Required: **No**   
+	Required: **No**  
 	Type: **string**  
 	Length: **2 characters**
 
-	Send the 2 characters long language code of your preferred language to display the verification screens accordingly. Please consult [Supported Languages](languages.md) for language codes.
+	Send the 2 characters long language code of your preferred language to display the verification screens accordingly. Please consult [Supported Languages](languages.md) for language codes. Default language english will be selected if this key is missing in the request.
 
 * ## email
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **6 characters**  
 	Maximum: **128 characters**
@@ -146,13 +143,22 @@ Some of these parameters are necessarily required while others are optional.
 
 	During a verification request, we make several server to server calls to keep you updated about the verification state. This way you can update the request status at your end even if the customer is lost midway through the process.
 
+* ## redirect_url
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **6 characters**  
+	Maximum: **250 characters**
+
+	Once an on-site verification is complete, User is redirected to this link after showing the results.
+
 * ## verification_mode
 
 	Required: **No**  
 	Type: **string**  
 	Accepted Values: **any, image_only, video_only**
 
-	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' mode, you can only send base64 of videos where format should be MP4 or MOV in proofs. In 'any' mode mixture of images and videos can be provided in proofs.
+	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' user will upload videos and images if verification mode is 'image_only'.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
@@ -161,7 +167,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -177,7 +183,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -215,7 +221,7 @@ Some of these parameters are necessarily required while others are optional.
 	Required: **No**  
 	Type: **object**
 
-	In name object used in document service, first_name and last_name is required and other fields are optional.
+	In name object used in document service, first_name and last_name are extracted from the document uploaded if name is empty. 
 
 	* <h4>first_name</h4>
 	Required: **No**  
@@ -270,7 +276,7 @@ Some of these parameters are necessarily required while others are optional.
 	Minimum: **2 characters**  
 	Maximum: **100 chracters**
 
-	Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores and commas. 
+	Leave empty to perform data extraction from the proofs. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores and commas. 
 	Examples 35201-0000000-0, ABC1234XYZ098
 
 	* <h3>issue_date</h3>
@@ -279,7 +285,7 @@ Some of these parameters are necessarily required while others are optional.
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
-	Provide a valid date. Please note that the date should be before today. 
+	Leave empty to perform data extraction from the proofs. Provide a valid date. Please note that the date should be before today. 
 	Example 2015-12-31
 
 	* <h3>expiry_date</h3>
@@ -288,17 +294,17 @@ Some of these parameters are necessarily required while others are optional.
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
-	Provide a valid date. Please note that the date should be after today. 
+	Leave empty to perform data extraction from the proofs. Provide a valid date. Please note that the date should be after today. 
 	Example 2025-12-31
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## address
 
-	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. Supported document formats include: ID cards, passports, driving licenses and utility bills. You can opt more than 1 document format to perform address verification.
+	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -321,19 +327,19 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>full_address</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **250 chracters**
 
-	Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
+	Leave empty to perform data extraction from the proofs. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
 
 	* <h3>name</h3>
 
 	Required: **No**  
 	Format **object**
 
-	In name object used in address service, first_name and last_name is required and other fields are optional.
+	In name object used in address service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
 	* <h4>first_name</h4>
 
@@ -380,7 +386,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>proof</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Image Format: **JPG/PNG** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
@@ -410,21 +416,53 @@ Some of these parameters are necessarily required while others are optional.
 
 	Provide text in the string format which will be verified from a given proof.
 
+	<!-- -------------------------------------------------------------------------------- -->
+* ## phone
+
+	Verify the phone number of end-users by sending a random code to their number from Shufti Pro. Once the sent code is entered into the provided field by end-user, phone number will stand verified. It is primarily an on-site verification and you have to provide phone number of the end-user to us, in addition to the verification code and the message that is to be forwarded to the end-user. Shufti Pro will be responsible only to send the message along with verification code to the end user and verify the code entered by the end-user.
+
+	* <h3>phone_number</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **64 chracters**
+
+	Allowed Characters: numbers and plus sign at the beginning. Provide a valid customer’s phone number with country code. Shufti Pro will directly ask the end-user for phone number if this field is missing or empty.
+
+	* <h3>random_code</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **64 chracters**
+
+	Provide a random code. If this field is missing or empty. Shufti Pro will generate a random code.
+
+	* <h3>text</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **2 characters**  
+	Maximum: **100 chracters**
+
+	Provide a short description and random code in this field. This message will be sent to customers. ***This field should contain random_code***. If random_code field is empty than Shufti Pro will generate a random code and append the code with this message at the end.
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## background_checks
 
-	Background checks is an off-site verification process that will require you to send us the Full Name of end user in addition to Date of Birth. Shufti Pro will perform AML based background checks based on this information.
+	It is a verification process that will require you to send us the full Name of end user in addition to date of birth. Shufti Pro will perform AML based background checks based on this information. Please note that the name and dob keys will be extracted from document service if these keys are empty.
 
 	* <h3>name</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Format: **object**
 
 	In name object used in background checks service, first_name and last_name is required and other fields are optional.
 
 	* <h4>first_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -444,7 +482,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -454,7 +492,7 @@ Some of these parameters are necessarily required while others are optional.
 
 	* <h3>dob</h3>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
@@ -513,7 +551,13 @@ The Shufti Pro Verification API will send you two types of responses if a reques
 	A URL is generated for your customer to verify there documents. It is only generated in case of on-site request.  
 
 * <h3>verification_result</h3>
-	It is only returned in case of a valid verification. This includes results of each verification. <br/> 1 means **accepted** <br/> 0 means **declined**.<br/> null means **not processed**. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
+	It is only returned in case of a valid verification. This includes results of each verification.  
+
+	1 means **accepted**  
+	0 means **declined**  
+	null means **not processed**  
+
+	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
 	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
@@ -572,7 +616,7 @@ Chrome (Recommended)      | 65
 Firefox (Recommended)     | 58
 Safari                    | 8 
 Opera                     | 52
-Internet Explorer         | 10 
+Internet Explorer         | 11 
 Edge                      | 16
 
 Here a list of supported operating systems on mobile devices.

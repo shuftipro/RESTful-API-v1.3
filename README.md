@@ -4,6 +4,8 @@
 
 Shufti Pro has designed this Verification API document for its customers that have signed up for our next-generation service pack. This document will explain various kinds of verification services included in this service pack, how they are provided and what kind of data is required from our clients to perform these verifications successfully.
 
+Shufti Pro’s AI & HI hybrid technology ensures 99.6% accurate results and quickest response time.
+
 Shufti Pro’s API supports two verification types, i.e. on-site and off-site. 
 
 ## On-site Verification
@@ -13,11 +15,11 @@ On-site verification means that the customer will come on Shufti Pro’s site an
 Merchant provides us with the keys, not the data. Example: name: “ ”.
 This means that the merchant has opted for name verification but has not sent any data.
 We have to extract the data, from the user’s provided documents, at our end, and then verify it as well. 
-Consult [This Document](on-site_with_ocr.md) for complete On-site Verification with OCR.
+Consult [This Document](on-site_with_ocr/on-site_with_ocr.md) for complete On-site Verification with OCR.
 	
 * ### Without OCR
 Merchant provides us with the keys, along with the data. Example: issue_date: “2016-07-16”. This means that the merchant has opted for issue date verification with the verification data. We have to simply verify that information, no data extraction is required. 
-Consult [This Document](on-site_without_ocr.md) for complete On-site Verification without OCR.
+Consult [This Document](on-site_without_ocr/on-site_without_ocr.md) for complete On-site Verification without OCR.
 
 ## Off-site Verification
 Off-site verification means that the customer will not come on Shufti Pro’s site to get verified. They will do it through the merchant’s platform. Merchant will collect the information and send us the data for verification. Merchant provides us with the proofs (images/videos). We will not collect them directly from the user. 
@@ -25,13 +27,11 @@ Off-site verification means that the customer will not come on Shufti Pro’s si
     
 * ### With OCR
 In off-site verification with OCR means that the merchant has not provided us proofs (images/videos) and also no data in some keys. In this verification Shufti Pro will perform extraction of data from those proofs and finally verify the data. 
-Consult [This Document](off-site_with_ocr.md) for complete Off-site Verification with OCR. 
+Consult [This Document](off-site_with_ocr/off-site_with_ocr.md) for complete Off-site Verification with OCR. 
 	
 * ### Without OCR
 If Merchant gives us the data in keys as well as all the proofs required then Shufti Pro just have to verify the data. No customer interaction takes place in this kind of verification.
-Consult [This Document](off-site_without_ocr.md) for complete Off-site Verification without OCR.
-
-*In off-site verification without OCR, merchant collects ALL the information from the user and sends it to us. We just have to verify that information.*
+Consult [This Document](off-site_without_ocr/off-site_without_ocr.md) for complete Off-site Verification without OCR.
 
 # Authorization
 
@@ -125,8 +125,11 @@ Shufti Pro is performing variety of verifications for its customers. Our diverse
 
 Whenever a request for verification from a customer is received, the intelligent system of Shufti Pro ascertains the nature of verification through following parameters. These parameters enable Shufti pro to identify its customers, authenticity of client credentials, read client data, what kind of verification is required  (off-site or on-site) and what material is being sent to perform that verification. Some of these parameters are necessarily required while others are optional. 
 
-*It is important to note here that each service module is independent of other and each one of them is activated according to the nature of 
-request received from you.*
+# Request Parameters
+
+It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
+
+All keys are optional. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
 
 * ## reference
 
@@ -330,7 +333,7 @@ request received from you.*
 <!-- -------------------------------------------------------------------------------- -->
 * ## address
 
-	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. Supported document formats include: ID cards, passports, driving licenses and utility bills. You can opt more than 1 document format to perform address verification.
+	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. Supported document formats include ID cards, utility bills and bank statements.
 
 	* <h3>proof</h3>
 
@@ -449,7 +452,7 @@ request received from you.*
 <!-- -------------------------------------------------------------------------------- -->
 * ## phone
 
-	Verify the phone number of end-users by sending a random code to their number from Shufti Pro. Once, the sent code is entered into the provided field by end-user, phone number will stand verified. It is primarily an on-site verification and you have to provide phone number of the end-user to us, in addition to the verification code and the message that is to be forwarded to the end-user. Shufti Pro will be responsible only to send the message along with verification code to the end user and verify the code entered by the end-user.
+	Verify the phone number of end-users by sending a random code to their number from Shufti Pro. Once the sent code is entered into the provided field by end-user, phone number will stand verified. It is primarily an on-site verification and you have to provide phone number of the end-user to us, in addition to the verification code and the message that is to be forwarded to the end-user. Shufti Pro will be responsible only to send the message along with verification code to the end user and verify the code entered by the end-user.
 
 	* <h3>phone_number</h3>
 
@@ -481,7 +484,7 @@ request received from you.*
 <!-- -------------------------------------------------------------------------------- -->
 * ## background_checks
 
-	It is a verification process that will require you to send us the Full Name of end user in addition to Date of Birth. Shufti Pro will perform AML based background checks based on this information.
+	It is a verification process that will require you to send us the full Name of end user in addition to date of birth. Shufti Pro will perform AML based background checks based on this information. Please note that the name and dob keys will be extracted from document service if these keys are empty.
 
 	* <h3>name</h3>
 
@@ -581,7 +584,13 @@ The Shufti Pro Verification API will send you two types of responses if a reques
 	A URL is generated for your customer to verify there documents. It is only generated in case of on-site request.  
 
 * <h3>verification_result</h3>
-	It is only returned in case of a valid verification. This includes results of each verification. <br/> 1 means **accepted** <br/> 0 means **declined**.<br/> null means **not processed**. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
+	It is only returned in case of a valid verification. This includes results of each verification.  
+
+	1 means **accepted**  
+	0 means **declined**  
+	null means **not processed**  
+
+	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
 	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
@@ -640,7 +649,7 @@ Chrome (Recommended)      | 65
 Firefox (Recommended)     | 58
 Safari                    | 8 
 Opera                     | 52
-Internet Explorer         | 10 
+Internet Explorer         | 11 
 Edge                      | 16
 
 Here a list of supported operating systems on mobile devices.
