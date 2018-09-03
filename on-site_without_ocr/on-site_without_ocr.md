@@ -8,7 +8,7 @@ This *Onsite verification without OCR* requires direct interaction between the p
 
 # Authorization
 
-The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that has been made to the API.
+The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that will be made to the API.
 
 Fields               | Required | Description
 ---------------------|----------|-------------
@@ -21,7 +21,7 @@ password             | Yes      | Enter your Secret Key as password.
 
 ```json
 POST /HTTP/1.1  
-Host: https://shuftipro.com/api
+Host: https://shuftipro.com/api/
   Content-Type: application/json
   Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
@@ -111,7 +111,7 @@ Whenever a request for verification from a user is received, Shufti Pro’s inte
 
 It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
 
-All keys are optional. Please make sure that values are provided with the provided keys. 
+All verification services are optional. You can provide Shufti Pro a single service or mixture of several services for verifications. All keys are optional too but values are required with the given keys.  
 
 * ## reference
 
@@ -203,6 +203,9 @@ All keys are optional. Please make sure that values are provided with the provid
 
 	In name object used in document service, first_name and last_name is required if you want to perform a name verification from a document. Other fields are optional. All services having name fields include the following parameters.
 
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
+
 	* <h4>first_name</h4>
 	Required: **Yes**  
 	Type: **string**  
@@ -238,7 +241,7 @@ All keys are optional. Please make sure that values are provided with the provid
 	Type: **string** 
 	Value Accepted: **1**
 
-	Provide 1 for enabling a fuzzy match of the name.
+	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 	* <h3>dob</h3>
 
@@ -314,6 +317,9 @@ All keys are optional. Please make sure that values are provided with the provid
 
 	In name object used in address service, first_name and last_name is required if name verification is required. Other fields are optional. All services having name fields include the following parameters.
 
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
+
 	* <h4>first_name</h4>
 
 	Required: **Yes**  
@@ -350,7 +356,7 @@ All keys are optional. Please make sure that values are provided with the provid
 	Type: **string**  
 	Values Accepted: **1**
 
-	Provide 1 for enabling a fuzzy match of the name.
+	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
@@ -362,7 +368,7 @@ All keys are optional. Please make sure that values are provided with the provid
 	Required: **Yes**  
 	Type: **string**
 
-	Text provided in the note verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
+	Text provided in the consent verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
 
 	Formats              |
 	---------------------|
@@ -425,6 +431,9 @@ All keys are optional. Please make sure that values are provided with the provid
 	Format: **object**
 
 	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "middle_name" : "Carter", "last_name" : "Doe"}
 
 	* <h4>first_name</h4>
 

@@ -8,7 +8,7 @@ This *Onsite verification with OCR* requires direct interaction between the prov
 
 # Authorization
 
-The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that has been made to the API.
+The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that will be made to the API.
 
 Fields               | Required | Description
 ---------------------|----------|-------------
@@ -23,7 +23,7 @@ password             | Yes      | Enter your Secret Key as password.
 
 ```json
 POST /HTTP/1.1  
-Host: https://shuftipro.com/api
+Host: https://shuftipro.com/api/
   Content-Type: application/json
   Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
@@ -96,7 +96,7 @@ Whenever a request for verification from a user is received, Shufti Pro’s inte
 
 It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
 
-All keys are optional. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
+All verification services are optional. You can provide Shufti Pro a single service or mixture of several services for verifications. All keys are optional too. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
 
 * ## reference
 
@@ -228,7 +228,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **string**  
 	Value Accepted: **1**
 
-	Provide 1 for enabling a fuzzy match of the name.
+	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 	* <h3>dob</h3>
 
@@ -340,7 +340,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **string**  
 	Value Accepted: **1**
 
-	Provide 1 for enabling a fuzzy match of the name.
+	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
@@ -352,7 +352,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Required: **Yes**  
 	Type: **string**
 
-	Text provided in the note verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
+	Text provided in the consent verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
 
 	Formats              |
 	---------------------|

@@ -35,7 +35,7 @@ Consult [This Document](off-site_without_ocr/off-site_without_ocr.md) for comple
 
 # Authorization
 
-The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that has been made to the API.
+The Shufti Pro Verification API authenticates clients with a **Basic Auth** header. Provide your **Client ID as Username** and **Secret Key as Password**. This header is required in every request that will be made to the API.
 
 Fields               | Required | Description
 ---------------------|----------|-------------
@@ -129,7 +129,7 @@ Whenever a request for verification from a customer is received, the intelligent
 
 It is important to note here that each service module is independent of other and each one of them is activated according to the nature of request received from you. There are a total of six services which include face, document, address, consent, phone and background_checks.
 
-All keys are optional. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
+All verification services are optional. You can provide Shufti Pro a single service or mixture of several services for verifications. All keys are optional too. If a key is given in document or address sevice and no value is provided then OCR will be performed for those keys. 
 
 * ## reference
 
@@ -255,6 +255,9 @@ All keys are optional. If a key is given in document or address sevice and no va
 
 	In name object used in document service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
+
 	* <h4>first_name</h4>
 
 	 Required: **No**  
@@ -291,7 +294,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	 Type: **string**  
 	 Value Accepted: **1**
 
-	 Provide 1 for enabling a fuzzy match of the name.
+	 Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 	* <h3>dob</h3>
 
@@ -374,6 +377,9 @@ All keys are optional. If a key is given in document or address sevice and no va
 
 	In name object used in address service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
+
 	* <h4>first_name</h4>
 
 	 Required: **No**  
@@ -410,7 +416,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	 Type: **string**  
 	 Value Accepted: **1**
 
-	 Provide 1 for enabling a fuzzy match of the name.
+	 Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
@@ -442,7 +448,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 
 	* <h3>text</h3>
 
-	Required: **No**  
+	Required: **Yes**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **100 chracters**
@@ -492,6 +498,9 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **object**
 
 	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+
+	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
+	**Example 2**  { "first_name" : "John", "middle_name" : "Carter", "last_name" : "Doe"}
 
 	* <h4>first_name</h4>
 
