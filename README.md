@@ -4,7 +4,7 @@
 
 Shufti Pro has designed this Verification API document for its customers that have signed up for our next-generation service pack. This document will explain various kinds of verification services included in this service pack, how they are provided and what kind of data is required from our clients to perform these verifications successfully.
 
-Shufti Pro’s AI & HI hybrid technology ensures 99.6% accurate results and quickest response time.
+**Shufti Pro’s AI & HI hybrid technology ensures 99.6% accurate results and quickest response time.**
 
 Shufti Pro’s API supports two verification types, i.e. on-site and off-site. 
 
