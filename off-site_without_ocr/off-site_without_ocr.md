@@ -25,7 +25,7 @@ password             | Yes      | Enter your Secret Key as password.
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {       
 	"reference": "17374217" ,
@@ -36,6 +36,10 @@ Host: https://shuftipro.com/api
 	"redirect_url": "http://www.example.com", 
 
 	"verification_mode": "any",
+
+	"face": {
+		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" 
+	},
 
 	"document": { 
 		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 

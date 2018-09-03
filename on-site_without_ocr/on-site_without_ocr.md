@@ -23,7 +23,7 @@ password             | Yes      | Enter your Secret Key as password.
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {       
 	"reference": "17374217" ,
@@ -35,9 +35,9 @@ Host: https://shuftipro.com/api
 
 	"verification_mode": "any",
 
+	"face": "",
+
 	"document": { 
-		"proof": "", 
-		"additional_proof": "", 
 		"supported_types": [
 			"passport", 
 			"id_card", 
@@ -56,7 +56,6 @@ Host: https://shuftipro.com/api
 	},  
 
 	"address":{ 
-		"proof":"" ,
 		"full_address":"3339 Maryland Avenue, Largo, Florida", 
 		"name": { 
 			"first_name": "John", 
@@ -72,7 +71,6 @@ Host: https://shuftipro.com/api
 	},
 
 	"consent":{ 
-		"proof":"" ,
 		"format":"printed", 
 		"text":"This is a customized text", 
 	}, 
@@ -174,48 +172,19 @@ All keys are optional. Please make sure that values are provided with the provid
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
 
-	The easiest of all verifications is done by authenticating the face of the users. In case of on-site verification, end-user will have to show their face in front of a webcam or camera of their phone that essentially makes it a selfie verification. If the mode of verification is off-site, then the image will be provided by you and Shufti Pro will verify that image.
-
-	* <h3>proof</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
-	Video Format: **MP4/MOV** Maximum: **20MB**
-
-	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
+	The easiest of all verifications is done by authenticating the face of the users. In case of on-site verification, end-user will have to show their face in front of a webcam or camera of their phone that essentially makes it a selfie verification.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## document
 
 	Shufti Pro provides document verification through various types of documents. The supported formats are passports, ID Cards, driving licenses and debit/credit cards. You can opt for more than 1 document type as well. In that case, Shufti Pro will give an option to end-users to verify their data from any of the given document types.  
 
-	In case of off-site verification, you can provide more than 1 document image and use “additional proof” parameter for this. This is to ensure that the required credentials are easily visible e.g. a document might have name and image of individual at the front but the date of birth of that person is printed at the back of the document or on another page of the passport. If you opt for both facial and document verification, face of individual from document will be used to validate uploaded selfie.
-
-	* <h3>proof</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
-	Video Format: **MP4/MOV** Maximum: **20MB**
-
-	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
-
-	* <h3>additional_proof</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
-	Video Format: **MP4/MOV** Maximum: **20MB**
-
-	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
-
 	* <h3>supported_types</h3>
 
 	Required: **Yes**  
 	Type: **Array**
 
-	Document verification have two parameters: proof and additional_proof. If these two are not set or empty, it means that it should be an on-site verification. You can provide any one, two or more types of documents to verify the identity of user. For example, if you opt for both passport and driving license, then your user will be given an opportunity to verify data from either of these two documents. **Please provide only one document type if you are providing proof of that document with the request**. All supported types are listed below.
+	You can provide any one, two or more types of documents to verify the identity of user. For example, if you opt for both passport and driving license, then your user will be given an opportunity to verify data from either of these two documents. All supported types are listed below.
 
 	Supported Types      |
 	---------------------|
@@ -313,19 +282,12 @@ All keys are optional. Please make sure that values are provided with the provid
 
 	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. 
 
-	* <h3>proof</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
-	Video Format: **MP4/MOV** Maximum: **20MB**
-
 	* <h3>supported_types</h3>
 
 	Required: **Yes**  
 	Type: **Array**
 
-	Provide any one, two or more document types in proof parameter in Address verification service. For example, if you choose id_card and utility_bill, then the user will be able to verify data using either of these two documents. **Please provide only one document type if you are providing proof of that document with the request**. Following is the list of supported types for address verification.
+	Provide any one, two or more document types in supported_types parameter in Address verification service. For example, if you choose id_card and utility_bill, then the user will be able to verify data using either of these two documents. Following is the list of supported types for address verification.
 
 	Supported Types      |
 	---------------------|
@@ -395,13 +357,6 @@ All keys are optional. Please make sure that values are provided with the provid
 	
 	Customised documents/notes can also be verified by Shufti Pro. Company documents, employee cards or any other personalised note can be authenticated by this module. You can choose handwritten or printed document format but only one form of document can be verified in this verification module. Text whose presence on the note/customized document is to be verified, is also needed to be provided.
 
-	* <h3>proof</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
-	Video Format: **MP4/MOV** Maximum: **20MB**
-
 	* <h3>format</h3>
 
 	Required: **Yes**  
@@ -425,7 +380,7 @@ All keys are optional. Please make sure that values are provided with the provid
 	Minimum: **2 characters**  
 	Maximum: **100 chracters**
 
-	Provide text in the string format which will be verified from a given proof.
+	Provide text in the string format which will be verified from the document uploaded by the end-user.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## phone

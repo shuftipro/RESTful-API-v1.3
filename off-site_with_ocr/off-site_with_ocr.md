@@ -23,7 +23,7 @@ password             | Yes      | Enter your Secret Key as password.
 POST /HTTP/1.1  
 Host: https://shuftipro.com/api
   Content-Type: application/json
-  Authorization: Basic    
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
 {       
 	"reference": "17374217" ,
@@ -34,6 +34,10 @@ Host: https://shuftipro.com/api
 	"redirect_url": "http://www.example.com", 
 
 	"verification_mode": "any",
+
+	"face": {
+		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" 
+	},
 
 	"document": { 
 		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
@@ -212,7 +216,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Required: **No**  
 	Type: **object**
 
-	In name object used in document service, first_name and last_name is required and other fields are optional.
+	In name object used in document service, first_name and last_name are extracted from the document provided if name is empty. 
 
 	* <h4>first_name</h4>
 	Required: **No**  
@@ -257,7 +261,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
-	Provide a valid date. Please note that the date should be before today. 
+	Leave empty to perform data extraction from provided proofs. Provide a valid date. Please note that the date should be before today. 
 	Example 1990-12-31
 
 	* <h3>document_number</h3>
@@ -267,7 +271,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Minimum: **2 characters**  
 	Maximum: **100 chracters**
 
-	Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores and commas. 
+	Leave empty to perform data extraction from provided proofs. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores and commas. 
 	Examples 35201-0000000-0, ABC1234XYZ098
 
 	* <h3>issue_date</h3>
@@ -276,7 +280,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
-	Provide a valid date. Please note that the date should be before today. 
+	Leave empty to perform data extraction from provided proofs. Provide a valid date. Please note that the date should be before today. 
 	Example 2015-12-31
 
 	* <h3>expiry_date</h3>
@@ -285,7 +289,7 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Type: **string**  
 	Format: **yyyy-mm-dd**
 
-	Provide a valid date. Please note that the date should be after today. 
+	Leave empty to perform data extraction from provided proofs. Provide a valid date. Please note that the date should be after today. 
 	Example 2025-12-31
 
 <!-- -------------------------------------------------------------------------------- -->
@@ -323,14 +327,14 @@ All keys are optional. If a key is given in document or address sevice and no va
 	Minimum: **2 characters**  
 	Maximum: **250 chracters**
 
-	Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
+	Leave empty to perform data extraction from provided proofs. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
 
 	* <h3>name</h3>
 
 	Required: **No**  
 	Format **object**
 
-	In name object used in address service, first_name and last_name is required and other fields are optional.
+	Leave empty to perform data extraction from provided proofs.
 
 	* <h4>first_name</h4>
 
