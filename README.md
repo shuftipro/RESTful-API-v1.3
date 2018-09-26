@@ -8,7 +8,7 @@ Shufti Pro has designed this Verification API document for its customers that ha
 
 Shufti Pro’s API supports two verification types, i.e. on-site and off-site. 
 
-## On-site Verification
+## On-site Verification (Through an iFrame)
 On-site verification means that the customer will come on Shufti Pro’s site and perform verification there. They will not perform it through the merchant’s site. Shufti Pro will collect the information directly from customer. 
 	
 * ### With OCR
