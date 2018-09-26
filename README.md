@@ -190,7 +190,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Type: **string**  
 	Accepted Values: **any, image_only, video_only**
 
-	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' mode, you can only send base64 of videos where format should be MP4 or MOV in proofs. In 'any' mode mixture of images and videos can be provided in proofs. Default mode 'any' will be selected if this key is missing.
+	Verification mode defines how would you like us to verify your request, through a video or an image. If you specify **video_only** then the verification process would require a video to complete the face, document, address or consent verification process. In case you specify **image_only** then then verification process can be completed through still images. If you don't provide this parameter at all then the **image_only** mode will be set.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
