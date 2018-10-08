@@ -294,9 +294,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Supported Types      |
 	---------------------|
-	id_card             |
-	utiltiy_bill           |
-	bank_statement   |
+	id_card              |
+	passport             |
+	driving_license      |
+	utility_bill         |
+	bank_statement       |
+	rent_agreement       |
+	employer_letter      |
+	insurance_agreement  |
+	tax_bill             |
 
 	**Example 1** [ "utility_bill" ]  
 	**Example 2** [ "id_card", "bank_statement" ]
