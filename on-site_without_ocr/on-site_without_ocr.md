@@ -514,7 +514,8 @@ Once a verification request is completed, you may request at status end point to
 
 ## Verification Response
 
-The Shufti Pro Verification API will send you two types of responses if a request for verification is made. First is the HTTP response sent against your request, and the second is the callback response, respectively. Both HTTP and callback responses will be in the JSON format with header `application/json` and they will contain the following parameters:
+The Shufti Pro Verification API will send you two types of responses if a request for verification is made. First is the HTTP response sent against your request, and the second is the callback response. Both HTTP and callback responses will be in the JSON format with header `application/json`. The response header also includes a key sp_signature. This key is used for validating the source of response. Be sure to validate the request by [generating signature](#response-signature) and matching it with sp_signature value from the response header.  
+Responses will contain the following parameters:
 
 * <h3>reference</h3>
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
@@ -550,6 +551,9 @@ Note: Callback response will be sent on the callback_url provided in the request
 >Sample Response  
 
 ```json
+Content-Type: application/json
+  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+
 {
     "reference":"17374217",
     "event":"request.pending",
@@ -560,7 +564,7 @@ Note: Callback response will be sent on the callback_url provided in the request
 
 ## Status Response
 
-The Shufti Pro Verification API will send a JSON response if a status request is made.
+The Shufti Pro Verification API will send a JSON response if a status request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **sp_signature** value from response header.
 
 * <h3>reference</h3>
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
@@ -575,11 +579,24 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
 >Sample Response  
 
 ```json
+Content-Type: application/json
+  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+
 {
     "reference": "17374217",
     "event": "request.invalid"
 }
 ```
+
+## Response Signature
+Every HTTP and Callback responses will be in application/json with a key **sp_signature** in the header. It can be used to validate the source of the request. Make a signature using the following procedure:
+
+1. Concatinate Secret Key at the end of the response string. (i.e. response + secret_key).
+2. Take **SHA256** of concatinated string.
+3. Match the SHA256 string with **sp_signature** value from the header of the response.
+
+In short, make signature as `hash('sha256', response . your_secret_key)` and match it with the signature provided in the header in **sp_signature** key.
+
 
 # HTTP Status Codes and Events
 
@@ -611,4 +628,4 @@ iOS                       | 10
 
 Date            | Description 
 --------------- | ------------
-09 Oct 2018     | last_name field is optional
+09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
