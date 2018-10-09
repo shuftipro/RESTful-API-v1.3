@@ -308,7 +308,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Format **object**
 
-	In name object used in address service, first_name and last_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
+	In name object used in address service, first_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
 	* <h4>first_name</h4>
 
@@ -420,7 +420,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Format: **object**
 
-	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+	In name object used in background checks service, first_name is required and other fields are optional.
 
 	* <h4>first_name</h4>
 
@@ -592,3 +592,4 @@ iOS                       | 10
 
 Date            | Description 
 --------------- | ------------
+09 Oct 2018     | last_name field is optional

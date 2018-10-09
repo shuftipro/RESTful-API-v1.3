@@ -228,7 +228,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Type: **object**
 
-	For a name verification, first_name and last_name fields are required.
+	For a name verification, first_name field is required.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
@@ -254,7 +254,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -354,7 +354,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Format **object**
 
-	Name verification from an address image, provide first_name and last_name as they are necessary.
+	Name verification from an address image, provide first_name as necessary.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
@@ -381,7 +381,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -444,7 +444,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **Yes**  
 	Format: **object**
 
-	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+	In name object used in background checks service, first_name is required and other fields are optional.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "middle_name" : "Carter", "last_name" : "Doe"}
@@ -471,7 +471,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -597,3 +597,4 @@ Instant Capture & Verification API uses conventional HTTP response codes to indi
 
 Date            | Description 
 --------------- | ------------
+09 Oct 2018     | last_name field is optional

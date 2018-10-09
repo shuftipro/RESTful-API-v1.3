@@ -201,7 +201,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Type: **object**
 
-	In name object used in document service, first_name and last_name is required if you want to perform a name verification from a document. Other fields are optional. All services having name fields include the following parameters.
+	In name object used in document service, first_name is required if you want to perform a name verification from a document. Other fields are optional. All services having name fields include the following parameters.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
@@ -227,7 +227,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -321,7 +321,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Format **object**
 
-	In name object used in address service, first_name and last_name is required if name verification is required. Other fields are optional. All services having name fields include the following parameters.
+	In name object used in address service, first_name is required if name verification is required. Other fields are optional. All services having name fields include the following parameters.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "last_name" : "Doe", "fuzzy_match" : "1"}
@@ -348,7 +348,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -436,7 +436,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Format: **object**
 
-	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+	In name object used in background checks service, first_name is required and other fields are optional.
 
 	**Example 1**  { "first_name" : "John", "last_name" : "Doe" }  
 	**Example 2**  { "first_name" : "John", "middle_name" : "Carter", "last_name" : "Doe"}
@@ -463,7 +463,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	* <h4>last_name</h4>
 
-	Required: **Yes**  
+	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
 	Maximum: **32 chracters**
@@ -611,3 +611,4 @@ iOS                       | 10
 
 Date            | Description 
 --------------- | ------------
+09 Oct 2018     | last_name field is optional

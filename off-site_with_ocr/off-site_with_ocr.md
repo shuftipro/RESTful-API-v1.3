@@ -427,7 +427,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **Yes**  
 	Format: **object**
 
-	In name object used in background checks service, first_name and last_name is required and other fields are optional.
+	In name object used in background checks service, first_name is required and other fields are optional.
 
 	* <h4>first_name</h4>
 
@@ -577,3 +577,4 @@ Instant Capture & Verification API uses conventional HTTP response codes to indi
 
 Date            | Description 
 --------------- | ------------
+09 Oct 2018     | last_name field is optional
