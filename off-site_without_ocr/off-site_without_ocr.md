@@ -610,8 +610,30 @@ In short, make signature as `hash('sha256', response . your_secret_key)` and mat
 
 Instant Capture & Verification API uses conventional HTTP response codes to indicate the success or failure of an API request. Every response is generated in JSON with a specific HTTP code. Go to [Status Codes](status_codes.md) for a complete list of status codes. Events are sent in responses which show the status of request. These events are sent in both HTTP and callback responses. Please consult [Events](status_codes.md#events) for a complete list of events.
 
+
+
+# Test IDs
+Shufti Pro provides the users with a number of test documents. Customers may use these to test the demo, instead of presenting their actual information. <br><br>
+
+
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-face.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-face.jpg) 
+
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)
+
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-id-card.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-id-card.jpg)
+
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-consent-document.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-consent-document.jpg)
+
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-consent-document.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-consent-document.jpg)
+
+ <br>
+
+
+
+
 # Revision History
 
 Date            | Description 
 --------------- | ------------
+17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
