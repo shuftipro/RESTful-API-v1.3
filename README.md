@@ -609,7 +609,8 @@ Responses will contain the following parameters:
 	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
-	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. 
+	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process.   
+	
 	Check verification.accepted and verification.declined responses in [Events](status_codes.md#events) section for a sample response.
 
 
