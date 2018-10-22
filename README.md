@@ -609,7 +609,13 @@ Responses will contain the following parameters:
 	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
-	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
+	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check ***verification.accepted*** and ***verification.declined*** responses in [Events](status_codes.md#events) section for a sample response.
+
+
+
+* <h3>declined_reason</h3>
+	This parameter will have the reason due to which a verification has been ***declined***, and is only returned in this case in the callback URL.
+
 
 <aside class="notice">
 Note: Callback response will be sent on the callback_url provided in the request callback_url parameter.
@@ -715,6 +721,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
 
