@@ -609,12 +609,13 @@ Responses will contain the following parameters:
 	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
-	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> Check ***verification.accepted*** and ***verification.declined*** responses in [Events](status_codes.md#events) section for a sample response.
+	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/> 
+	Check verification.accepted and verification.declined responses in [Events](status_codes.md#events) section for a sample response.
 
 
 
 * <h3>declined_reason</h3>
-	This parameter will have the reason due to which a verification has been ***declined***, and is only returned in this case in the callback URL.
+	This parameter will have the reason due to which a verification has been declined, and is only returned in this case in the callback URL.
 
 
 <aside class="notice">
