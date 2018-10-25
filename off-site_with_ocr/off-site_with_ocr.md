@@ -532,7 +532,8 @@ Responses will contain the following parameters:
 
 * <h3>verification_data</h3>
 	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process.  
-	Check verification.accepted and verification.declined responses in [Events](status_codes.md#events) section for a sample response.
+
+	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 <aside class="notice">
 Note: Callback response will be sent on the callback_url provided in the request callback_url parameter.
