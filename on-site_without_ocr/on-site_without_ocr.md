@@ -521,7 +521,8 @@ Responses will contain the following parameters:
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
 
 * <h3>event</h3>
-	This is the request event which shows status of request. Event is changed in every response.   
+	This is the request event which shows status of request. Event is changed in every response.  
+
 	Please consult [Events](status_codes.md#events) for more information.
 
 * <h3>error</h3>
@@ -543,7 +544,8 @@ Responses will contain the following parameters:
 	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 * <h3>verification_data</h3>
-	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process. <br/>  
+	It is only returned in case of a valid verification. This object will include the all the gathered data in a request process.  
+
 	Check *verification.accepted* and *verification.declined* responses in [Events](status_codes.md#events) section for a sample response.
 
 <aside class="notice">
@@ -572,7 +574,9 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
 
 * <h3>event</h3>
-	This is the request event which shows status of request. Event is changed in every response. Please consult [Events](status_codes.md#events) for more information.
+	This is the request event which shows status of request. Event is changed in every response.  
+	  
+	Please consult [Events](status_codes.md#events) for more information.
 
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
