@@ -572,7 +572,9 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
 
 * <h3>event</h3>
-	This is the request event which shows status of request. Event is changed in every response. Please consult [Events](status_codes.md#events) for more information.
+	This is the request event which shows status of request. Event is changed in every response.  
+	  
+	Please consult [Events](status_codes.md#events) for more information.
 
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
