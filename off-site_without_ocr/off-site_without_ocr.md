@@ -618,6 +618,8 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 [![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-face.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-face.jpg) 
 
+[![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-face.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-face.jpg) 
+
 [![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)
 
 [![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-id-card.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/fake-id-card.jpg)
