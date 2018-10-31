@@ -38,12 +38,12 @@ Host: https://shuftipro.com/api/
 	"verification_mode": "any",
 
 	"face": {
-		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" 
+		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=" 
 	},
 
 	"document": { 
-		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
-		"additional_proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z", 
+		"proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=", 
+		"additional_proof": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=", 
 		"supported_types": [
 			"passport", 
 			"id_card", 
@@ -62,7 +62,7 @@ Host: https://shuftipro.com/api/
 	},  
 
 	"address":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
+		"proof":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=" ,
 		"full_address":"3339 Maryland Avenue, Largo, Florida", 
 		"name": { 
 			"first_name": "John", 
@@ -78,8 +78,11 @@ Host: https://shuftipro.com/api/
 	},
 
 	"consent":{ 
-		"proof":"data:video/mp4;base64,iVBORw0KGgoAAAANSUhEUgAAAT0AAAE+CAYAAABTCx//Z" ,
-		"format":"printed", 
+		"proof":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=" ,
+		"supported_types":[
+			"printed",
+			"handwritten"
+		], 
 		"text":"This is a customized text", 
 	}, 
 
@@ -176,7 +179,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -192,7 +195,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -201,7 +204,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -316,7 +319,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	* <h3>supported_types</h3>
@@ -406,24 +409,23 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
-	* <h3>format</h3>
+	* <h3>supported_types</h3>
 
 	Required: **Yes**  
-	Type: **string**
+	Type: **array**
 
-	Text provided in the consent verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
+	Text provided in the consent verification can be verified by handwritten documents or printed documents.
 
-	Formats              |
+	Supported Types              |
 	---------------------|
 	handwritten          |
 	printed            |
-	any                |
 
-	**Example 1**  "printed"  
-	**Example 2**  "any"
+	**Example 1**  ["printed"]  
+	**Example 2**  ["printed", "handwritten"]
 
 	* <h3>text</h3>
 
@@ -645,3 +647,5 @@ Date            | Description
 --------------- | ------------
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
+29 Oct 2018     | Changed format key to Supported_types in consent Service.
+29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.

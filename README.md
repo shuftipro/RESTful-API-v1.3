@@ -70,12 +70,7 @@ Host: https://shuftipro.com/api/
 		"proof": "", 
 		"additional_proof": "", 
 		"supported_types": [] ,
-		"name": { 
-			"first_name": "", 
-			"last_name": "", 
-			"middle_name": "" ,
-			"fuzzy_match": ""
-		}, 
+		"name": "",
 		"dob": "", 
 		"document_number": "", 
 		"expiry_date": "", 
@@ -85,18 +80,13 @@ Host: https://shuftipro.com/api/
 	"address":{ 
 		"proof":"" ,
 		"full_address":"", 
-		"name": { 
-			"first_name":"", 
-			"middle_name":"", 
-			"last_name":"", 
-			"fuzzy_match":"" 
-		}, 
+		"name": "",
 		"supported_types":[]
 	},
 	
 	"consent":{ 
 		"proof":"" ,
-		"format":"", 
+		"supported_types":[],
 		"text":"", 
 	}, 
 
@@ -107,11 +97,7 @@ Host: https://shuftipro.com/api/
 	},
 
 	"background_checks": {
-		"name": {
-			"first_name": "",
-			"middle_name": "",
-			"last_name": ""
-		},
+		"name": "",
 		"dob": ""
 	}
 }
@@ -201,7 +187,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -217,7 +203,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -226,7 +212,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
@@ -342,7 +328,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	* <h3>supported_types</h3>
@@ -433,24 +419,23 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Image Format: **JPG/PNG** Maximum: **16MB**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
-	* <h3>format</h3>
+	* <h3>supported_types</h3>
 
 	Required: **Yes**  
-	Type: **string**
+	Type: **array**
 
-	Text provided in the consent verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
+	Text provided in the consent verification can be verified by handwritten documents or printed documents.
 
-	Formats              |
+	Supported Types              |
 	---------------------|
 	handwritten          |
 	printed            |
-	any                |
 
-	**Example 1**  "printed"  
-	**Example 2**  "any"
+	**Example 1**  ["printed"]  
+	**Example 2**  ["printed", "handwritten"]
 
 	* <h3>text</h3>
 
@@ -480,7 +465,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
-	Maximum: **64 chracters**
+	Maximum: **10 chracters**
 
 	Provide a random code. If this field is missing or empty. Shufti Pro will generate a random code.
 
@@ -732,4 +717,6 @@ Date            | Description
 22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
+29 Oct 2018     | Changed format key to Supported_types in consent Service.
+29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
 

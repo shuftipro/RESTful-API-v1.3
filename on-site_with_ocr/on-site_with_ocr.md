@@ -64,7 +64,10 @@ Host: https://shuftipro.com/api/
 	},
 
 	"consent":{ 
-		"format":"printed", 
+		"supported_types":[
+			"printed",
+			"handwritten"
+		], 
 		"text":"This is a customized text", 
 	}, 
 
@@ -353,21 +356,20 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	
 	Customised documents/notes can also be verified by Shufti Pro. Company documents, employee cards or any other personalised note can be authenticated by this module. You can choose handwritten or printed document format but only one form of document can be verified in this verification module. Text whose presence on the note/customized document is to be verified, is also needed to be provided.
 
-	* <h3>format</h3>
+	* <h3>supported_types</h3>
 
 	Required: **Yes**  
-	Type: **string**
+	Type: **array**
 
-	Text provided in the consent verification can be verified by handwritten documents or printed documents. If “any” is mentioned in the format parameter, then user can verify provided note using either of these two documents. Mention only one format from the following list.
+	Text provided in the consent verification can be verified by handwritten documents or printed documents.
 
-	Formats              |
+	Supported Types              |
 	---------------------|
 	handwritten          |
 	printed            |
-	any                |
 
-	**Example 1**  "printed"  
-	**Example 2**  "any"
+	**Example 1**  ["printed"]  
+	**Example 2**  ["printed", "handwritten"]
 
 	* <h3>text</h3>
 
@@ -397,7 +399,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Required: **No**  
 	Type: **string**  
 	Minimum: **2 characters**  
-	Maximum: **64 chracters**
+	Maximum: **10 chracters**
 
 	Provide a random code. If this field is missing or empty. Shufti Pro will generate a random code.
 
@@ -640,3 +642,5 @@ Date            | Description
 --------------- | ------------
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
+29 Oct 2018     | Changed format key to Supported_types in consent Service.
+29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
