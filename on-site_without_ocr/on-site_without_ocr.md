@@ -176,7 +176,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Accepted Values: **0, 1**
+	Accepted Values: **0, 1**. 
 	Default Values: **1**
 
 	This parameter allows users to upload images or videos in case of nonavailability of a functional webcam.If value: 0, users can capture photos/videos with the camera only.	
