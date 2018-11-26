@@ -172,6 +172,16 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' user will upload videos and images if verification mode is 'image_only'.
 
+* ## allow_offline
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**
+	Default Values: **1**
+
+	This parameter allows users to upload images or videos in case of nonavailability of a functional webcam.If value: 0, users can capture photos/videos with the camera only.	
+
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
 
@@ -658,6 +668,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+26 Nov 2018     | Add allow_offline key in request parameters.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
 29 Oct 2018     | Changed format key to Supported_types in consent Service.

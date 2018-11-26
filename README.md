@@ -178,6 +178,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Verification mode defines how would you like us to verify your request, through a video or an image. If you specify **video_only** then the verification process would require a video to complete the face, document, address or consent verification process. In case you specify **image_only** then then verification process can be completed through still images. If you don't provide this parameter at all then the **image_only** mode will be set.
 
+* ## allow_offline
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**
+	Default Values: **1**
+
+	This parameter allows users to upload images or videos in case of nonavailability of a functional webcam.If value: 0, users can capture photos/videos with the camera only.	
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
 
@@ -714,6 +723,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+26 Nov 2018     | Add allow_offline key in request parameters.
 22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
