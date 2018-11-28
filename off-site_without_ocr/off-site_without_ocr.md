@@ -22,8 +22,8 @@ password             | Yes      | Enter your Secret Key as password.
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a7bedd4c36956cd7c25)
 
 ```json
-POST /HTTP/1.1  
-Host: https://shuftipro.com/api/
+POST /api/ HTTP/1.1
+Host: shuftipro.com
   Content-Type: application/json
   Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
@@ -496,8 +496,8 @@ All verification services are optional. You can provide Shufti Pro a single serv
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f3b6d206ad0a3551a51)
 
 ```json
-POST /HTTP/1.1  
-Host: https://shuftipro.com/api/status/
+POST /api/ HTTP/1.1
+Host: shuftipro.com
   Content-Type: application/json
   Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
 
