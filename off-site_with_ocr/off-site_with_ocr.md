@@ -17,7 +17,7 @@ password             | Yes      | Enter your Secret Key as password.
 
 # Verification Request Example
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e3d60f9e022c195aac7d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c371b72a229cc0083420)
 
 ```json
 POST /api/ HTTP/1.1
@@ -626,6 +626,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
 29 Oct 2018     | Changed format key to Supported_types in consent Service.

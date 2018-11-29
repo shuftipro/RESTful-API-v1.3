@@ -44,7 +44,7 @@ password             | Yes      | Enter your Secret Key as password.
 
 # Verification Request Sample 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8338f548d03d02831cab)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd7019628f7debe49141)
 
 ```json
 POST /api/ HTTP/1.1
@@ -723,6 +723,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
 26 Nov 2018     | Add allow_offline key in request parameters.
 22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
