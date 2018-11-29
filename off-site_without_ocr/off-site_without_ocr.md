@@ -100,7 +100,7 @@ Host: shuftipro.com
 
 # Verification Request
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a7bedd4c36956cd7c25)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/13c4f85e90c7f185bfff)
 
 Whenever a request for verification from a user is received, Shufti Pro’s intelligent system determines the nature of verification through parameters given below. These parameters enable Shufti Pro to:
 

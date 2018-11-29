@@ -105,7 +105,7 @@ Host: shuftipro.com
 
 # Verification Request
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8338f548d03d02831cab)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd7019628f7debe49141)
 
 Shufti Pro is performing variety of verifications for its customers. Our diverse services suite allows us to validate the identity of users through facial verification, documents verification and address verification. We can also check the authenticity of customised documents like official IDs and perform background checks for AML compliance. A mix of various service modules can also be acquired to perform multifaceted verifications like facial and document verification can help you perform a thorough KYC procedure.  
 
