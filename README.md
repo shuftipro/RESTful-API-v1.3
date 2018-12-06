@@ -257,7 +257,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -267,7 +267,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -277,7 +277,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -385,7 +385,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -395,7 +395,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -405,7 +405,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -506,7 +506,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -516,7 +516,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -526,7 +526,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Required: **No**  
 	 Type: **string**  
-	 Minimum: **2 characters**  
+	 Minimum: **1 character**  
 	 Maximum: **32 chracters**
 
 	 Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -723,11 +723,12 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+06 Dec 2018     | Minimum characters limit is set to 1 for first, middle and last name
 29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
+29 Oct 2018     | Changed format key to Supported_types in consent Service.
+29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
 26 Nov 2018     | Add allow_offline key in request parameters.
 22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
-29 Oct 2018     | Changed format key to Supported_types in consent Service.
-29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
 

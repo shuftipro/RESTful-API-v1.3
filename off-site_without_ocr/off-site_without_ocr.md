@@ -239,7 +239,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	* <h4>first_name</h4>
 	Required: **Yes**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters** 
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -249,7 +249,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -259,7 +259,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -366,7 +366,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -376,7 +376,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -386,7 +386,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -455,7 +455,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **Yes**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
@@ -465,7 +465,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
@@ -475,7 +475,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Required: **No**  
 	Type: **string**  
-	Minimum: **2 characters**  
+	Minimum: **1 character**  
 	Maximum: **32 chracters**
 
 	Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
