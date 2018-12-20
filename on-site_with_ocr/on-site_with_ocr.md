@@ -649,6 +649,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+20 Dec 2018     | Correct verification.cancelled event name from events listing
 29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
 26 Nov 2018     | Add allow_offline key in request parameters.
 17 Oct 2018     | Update Test IDs for demo/test verifications.

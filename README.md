@@ -723,6 +723,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+20 Dec 2018     | Correct verification.cancelled event name from events listing
 06 Dec 2018     | Minimum characters limit is set to 1 for first, middle and last name
 29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
 29 Oct 2018     | Changed format key to Supported_types in consent Service.

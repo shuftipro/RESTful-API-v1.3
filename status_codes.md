@@ -27,7 +27,7 @@ Event               | description     | HTTP Response | Callback Response
 ------------------------|-----------------|---------------|------------------
 request.pending         | Request parameters are valid and verification url is generated in case of on-site verification.|Yes|Yes
 request.invalid         | Request parameters provided in request are invalid.|Yes|Yes
-request.cancelled       | Request is cancelled by the user. This event occurs when end-user disagrees to terms and conditions before starting verifications.|Yes|Yes
+verification.cancelled  | Request is cancelled by the user. This event occurs when end-user disagrees to terms and conditions before starting verifications.|Yes|Yes
 request.timeout         | Request has timed out after a specific period of time.|No|Yes
 request.unauthorized    | Request is unauthorized. The information provided in authorization header is invalid.|Yes|No
 verification.accepted   | Request was valid and accepted after verification.|Yes|Yes
