@@ -476,7 +476,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f3b6d206ad0a3551a51)
 
 ```json
-POST /api/ HTTP/1.1
+POST /api/status HTTP/1.1
 Host: shuftipro.com
   Content-Type: application/json
   Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
@@ -626,6 +626,7 @@ Shufti Pro provides the users with a number of test documents. Customers may use
 
 Date            | Description 
 --------------- | ------------
+21 Dec 2018     | Correct the get status request url
 20 Dec 2018     | Correct verification.cancelled event name from events listing
 29 Nov 2018     | Update POSTMAN collection link, remove format key and add supported_types key for consent service in POSTMAN collection.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
