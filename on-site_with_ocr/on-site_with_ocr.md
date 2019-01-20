@@ -58,7 +58,7 @@ Host: shuftipro.com
 		"name": "",
 		"supported_types":[
 			"id_card", 
-			"utiltiy_bill", 
+			"utility_bill", 
 			"bank_statement"
 		]
 	},
