@@ -496,13 +496,13 @@ Once a verification request is completed, you may request at status end point to
 	Required: **Yes**  
 	Type: **string**  
 	Minimum: **6 characters**  
-	Maximum: **250 characters**
+	Maximum: **250 characters**  
 
 	This is the unique reference ID of request, which we will send you back with each response, so you can verify the request. Only alphanumeric values are allowed.
 
 # Delete Request sample  
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f3b6d206ad0a3551a51)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/28e1ab2e4c2831a9468e)
 
 ```json
 POST /api/delete HTTP/1.1

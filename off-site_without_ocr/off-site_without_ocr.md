@@ -522,7 +522,7 @@ Once a verification request is completed, you may request at status end point to
 
 # Delete Request sample  
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f3b6d206ad0a3551a51)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/28e1ab2e4c2831a9468e)
 
 ```json
 POST /api/delete HTTP/1.1
