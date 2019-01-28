@@ -594,7 +594,7 @@ Host: shuftipro.com
 
 {      
 	"reference" : "17374217",
-	"comment"   : "testing comment"
+	"comment"   : "Customer asked to delete his/her data"
 }
 
 ```
@@ -619,7 +619,7 @@ Once a verification request is completed, you may request at delete request endp
 	Minimum: **5 characters**  
 	Maximum: **200 characters**
 
-	Add a comment why the request is deleted.
+	Add a comment why the request is deleted for your future reference
 
 # Responses
 
