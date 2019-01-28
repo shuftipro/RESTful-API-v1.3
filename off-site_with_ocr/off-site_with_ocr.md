@@ -500,6 +500,45 @@ Once a verification request is completed, you may request at status end point to
 
 	This is the unique reference ID of request, which we will send you back with each response, so you can verify the request. Only alphanumeric values are allowed.
 
+# Delete Request sample  
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f3b6d206ad0a3551a51)
+
+```json
+POST /api/delete HTTP/1.1
+Host: shuftipro.com
+  Content-Type: application/json
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
+
+{      
+	"reference" : "17374217",
+	"comment"   : "testing comment"
+}
+
+```
+
+## Delete Request
+
+Once a verification request is completed, you may request at delete request endpoint to delete the verification data. You’ll have to provide reference ID for that request and you will be promptly informed about the deletion of the request.  
+
+* ## reference
+
+	Required: **Yes**  
+	Type: **string**  
+	Minimum: **5 characters**  
+	Maximum: **250 characters**
+
+	This is the unique reference ID of request which needs to be deleted.
+
+* ## comment
+
+	Required: **Yes**  
+	Type: **string**  
+	Minimum: **5 characters**  
+	Maximum: **200 characters**
+
+	Add a comment why the request is deleted.
+
 # Responses
 
 ## Verification Response
@@ -579,8 +618,53 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 	  
 	Please consult [Events](status_codes.md#events) for more information.
 
+* <h3>proof</h3>
+	This contains all the proofs that were used to verify data. The Proof URLs returned are temporary and valid for **15 minutes only**.
+
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
+</aside>
+
+>Sample Response  
+
+```json
+  Content-Type: application/json
+  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+
+{
+    "reference" : "17374217",
+    "event"     : "verification.accepted",
+    "proof"     : {
+    	"face": {
+            "proof": "https://shuftipro.com/api/storage/aZa8mncOFLrbtxXk7Ka/face/proof.png?access_token=1a6c9985e88051092b31d62d043"
+        },
+        "document": {
+            "proof": "https://shuftipro.com/api/storage/aZa8mncOFLrbtxXk7Ka/document/proof.png?access_token=1a6c9985e88051092b31d62d043"
+        },
+        "address": {
+            "proof": "https://shuftipro.com/api/storage/aZa8mncOFLrbtxXk7Ka/address/proof.png?access_token=1a6c9985e88051092b31d62d043"
+        },
+        "consent": {
+            "proof": "https://shuftipro.com/api/storage/aZa8mncOFLrbtxXk7Ka/consent/proof.png?access_token=1a6c9985e88051092b31d62d043"
+        } 
+    }
+}
+```
+
+## Delete Request Response
+
+The Shufti Pro Verification API will send a JSON response if a delete request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **sp_signature** value from response header.
+
+* <h3>reference</h3>
+	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
+
+* <h3>event</h3>
+	This is the request event which shows status of request. Event is changed in every response.  
+	  
+	Please consult [Events](status_codes.md#events) for more information.
+
+<aside class="notice">
+Note: <b>request.invalid</b> will be returned in case of invalid reference provided or the request is already deleted.
 </aside>
 
 >Sample Response  
@@ -591,7 +675,7 @@ Content-Type: application/json
 
 {
     "reference": "17374217",
-    "event": "request.invalid"
+    "event": "request.deleted"
 }
 ```
 
@@ -634,3 +718,6 @@ Date            | Description
 29 Oct 2018     | Changed format key to Supported_types in consent Service.
 29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
 24 Jan 2019     | Added a new callback with event `verification.status.changed`. It is sent to clients whenever a verification status is updated.
+28 Jan 2019     | Added a new endpoint `/api/delete` to delete a request data.
+28 Jan 2019     | Added a new event `request.deleted` which is returned whenever a request is deleted.
+28 Jan 2019     | Status response now returns proofs also.

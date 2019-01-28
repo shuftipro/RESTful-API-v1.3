@@ -33,6 +33,7 @@ request.unauthorized    | Request is unauthorized. The information provided in a
 verification.accepted   | Request was valid and accepted after verification.|Yes|Yes
 verification.declined   | Request was valid and declined after verification.|Yes|Yes
 verification.status.changed   | Request status has been updated.|No|Yes
+request.deleted   | Request has been deleted.|Yes|Yes
 
 <aside class="notice">
   In case of off-site verification, <b>verification.accepted</b> or <b>verification.declined</b> is returned in event when request is valid after verification. In case of <b>verification.status.changed</b> a callback is sent to notify a client that the verification status has been updated.
@@ -220,5 +221,14 @@ verification.status.changed   | Request status has been updated.|No|Yes
 {
   "reference": "17374217",
   "event": "verification.status.changed"
+}
+```
+
+> request.deleted
+
+```json
+{
+    "reference": "17374217",
+    "event": "request.deleted"
 }
 ```
