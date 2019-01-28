@@ -633,3 +633,4 @@ Date            | Description
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
 29 Oct 2018     | Changed format key to Supported_types in consent Service.
 29 Oct 2018     | Allowed PDF documents as proofs in image_only and any verification modes.
+24 Jan 2019     | Added a new callback with event `verification.status.changed`. It is sent to clients whenever a verification status is updated.

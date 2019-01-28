@@ -733,4 +733,5 @@ Date            | Description
 22 Oct 2018     | Add declined reason key in response.
 17 Oct 2018     | Update Test IDs for demo/test verifications.
 09 Oct 2018     | 1. Last name field is optional in all name objects. <br> 2. Added signature in response headers to validate the source of responses.
+24 Jan 2019     | Added a new callback with event `verification.status.changed`. It is sent to clients whenever a verification status is updated.
 

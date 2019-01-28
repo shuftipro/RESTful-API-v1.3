@@ -32,9 +32,10 @@ request.timeout         | Request has timed out after a specific period of time.
 request.unauthorized    | Request is unauthorized. The information provided in authorization header is invalid.|Yes|No
 verification.accepted   | Request was valid and accepted after verification.|Yes|Yes
 verification.declined   | Request was valid and declined after verification.|Yes|Yes
+verification.status.changed   | Request status has been updated.|No|Yes
 
 <aside class="notice">
-  In case of off-site verification, <b>verification.accepted</b> or <b>verification.declined</b> is returned in event when request is valid after verification. 
+  In case of off-site verification, <b>verification.accepted</b> or <b>verification.declined</b> is returned in event when request is valid after verification. In case of <b>verification.status.changed</b> a callback is sent to notify a client that the verification status has been updated.
 </aside>
 
 **Following are some sample events responses**  
@@ -210,5 +211,14 @@ verification.declined   | Request was valid and declined after verification.|Yes
       ]
     }
   }
+}
+```
+
+> verification.status.changed
+
+```json
+{
+  "reference": "17374217",
+  "event": "verification.status.changed"
 }
 ```
