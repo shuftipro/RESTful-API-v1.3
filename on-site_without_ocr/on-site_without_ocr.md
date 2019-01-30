@@ -197,11 +197,30 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	The easiest of all verifications is done by authenticating the face of the users. In case of on-site verification, end-user will have to show their face in front of a webcam or camera of their phone that essentially makes it a selfie verification.
 
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for face verification.
+
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## document
 
 	Shufti Pro provides document verification through various types of documents. The supported formats are passports, ID Cards, driving licenses and debit/credit cards. You can opt for more than 1 document type as well. In that case, Shufti Pro will give an option to end-users to verify their data from any of the given document types.  
 
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for document verification and other aspects that have to be verified from the document proof e.g Name, DOB, Document number etc.
+	
 	* <h3>supported_types</h3>
 
 	Required: **Yes**  
@@ -308,6 +327,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image. 
 
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for address verification and other aspects that have to be verified from the address proof i.e. Name and address.
+
 	* <h3>supported_types</h3>
 
 	Required: **Yes**  
@@ -391,6 +419,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 * ## consent
 	
 	Customised documents/notes can also be verified by Shufti Pro. Company documents, employee cards or any other personalised note can be authenticated by this module. You can choose handwritten or printed document format but only one form of document can be verified in this verification module. Text whose presence on the note/customized document is to be verified, is also needed to be provided.
+
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for consent verification and other aspects that have to be verified from the consent proof.
 
 	* <h3>supported_types</h3>
 
@@ -775,3 +812,4 @@ Date            | Description
 28 Jan 2019     | Added a new event `request.deleted` which is returned whenever a request is deleted.
 28 Jan 2019     | Status response now returns proofs also.
 28 Jan 2019     | Added `show_results` key in request which allows end-susers see verification results.
+30 Jan 2019     | Added `note` key face, document, address, consent services.

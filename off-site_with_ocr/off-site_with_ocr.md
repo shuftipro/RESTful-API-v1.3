@@ -172,6 +172,16 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
 
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for face verification.
+
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## document
 
@@ -196,6 +206,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
+
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for document verification and other aspects that have to be verified from the document proof e.g Name, DOB, Document number etc.
 
 	* <h3>supported_types</h3>
 
@@ -307,6 +326,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for address verification and other aspects that have to be verified from the address proof i.e. Name and address.
+
 	* <h3>supported_types</h3>
 
 	Required: **Yes**  
@@ -394,6 +422,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Type: **string**  
 	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
+
+	* <h3>note</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Minimum: **1 character**  
+	Maximum: **220 chracters**
+
+	Use this parameter to provide instructions for consent verification and other aspects that have to be verified from the consent proof.
 
 	* <h3>supported_types</h3>
 
@@ -721,3 +758,4 @@ Date            | Description
 28 Jan 2019     | Added a new endpoint `/api/delete` to delete a request data.
 28 Jan 2019     | Added a new event `request.deleted` which is returned whenever a request is deleted.
 28 Jan 2019     | Status response now returns proofs also.
+30 Jan 2019     | Added `note` key face, document, address, consent services.
