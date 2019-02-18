@@ -576,7 +576,7 @@ Once a verification request is completed, you may request at delete request endp
 
 ## Verification Response
 
-The Shufti Pro Verification API will send you two types of responses if a request for verification is made. First is the HTTP response sent against your request, and the second is the callback response. Both HTTP and callback responses will be in the JSON format with header `application/json`. The response header also includes a key sp_signature. This key is used for validating the source of response. Be sure to validate the request by [generating signature](#response-signature) and matching it with sp_signature value from the response header.  
+The Shufti Pro Verification API will send you two types of responses if a request for verification is made. First is the HTTP response sent against your request, and the second is the callback response. Both HTTP and callback responses will be in the JSON format with header `application/json`. The response header also includes a key Signature. This key is used for validating the source of response. Be sure to validate the request by [generating signature](#response-signature) and matching it with Signature value from the response header.  
 Responses will contain the following parameters:
 
 * <h3>reference</h3>
@@ -618,7 +618,7 @@ Note: Callback response will be sent on the callback_url provided in the request
 
 ```json
 Content-Type: application/json
-  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+  Signature: NmI4NmIyNzNmZjM0ZmNl
 
 {
     "reference":"17374217",
@@ -630,7 +630,7 @@ Content-Type: application/json
 
 ## Status Response
 
-The Shufti Pro Verification API will send a JSON response if a status request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **sp_signature** value from response header.
+The Shufti Pro Verification API will send a JSON response if a status request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **Signature** value from response header.
 
 * <h3>reference</h3>
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
@@ -651,7 +651,7 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
 
 ```json
   Content-Type: application/json
-  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+  Signature: NmI4NmIyNzNmZjM0ZmNl
 
 {
     "reference" : "17374217",
@@ -675,7 +675,7 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
 
 ## Delete Request Response
 
-The Shufti Pro Verification API will send a JSON response if a delete request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **sp_signature** value from response header.
+The Shufti Pro Verification API will send a JSON response if a delete request is made. Make sure to validate the request by [generating signature](#response-signature) and matching it with **Signature** value from response header.
 
 * <h3>reference</h3>
 	Your unique request reference, which you provided us at the time of request, so that you can identify the response in relation to the request made.
@@ -693,7 +693,7 @@ Note: <b>request.invalid</b> will be returned in case of invalid reference provi
 
 ```json
 Content-Type: application/json
-  sp_signature: NmI4NmIyNzNmZjM0ZmNl
+  Signature: NmI4NmIyNzNmZjM0ZmNl
 
 {
     "reference": "17374217",
@@ -702,13 +702,13 @@ Content-Type: application/json
 ```
 
 ## Response Signature
-Every HTTP and Callback responses will be in application/json with a key **sp_signature** in the header. It can be used to validate the source of the request. Make a signature using the following procedure:
+Every HTTP and Callback responses will be in application/json with a key **Signature** in the header. It can be used to validate the source of the request. Make a signature using the following procedure:
 
 1. Concatinate Secret Key at the end of the response string. (i.e. response + secret_key).
 2. Take **SHA256** of concatinated string.
-3. Match the SHA256 string with **sp_signature** value from the header of the response.
+3. Match the SHA256 string with **Signature** value from the header of the response.
 
-In short, make signature as `hash('sha256', response . your_secret_key)` and match it with the signature provided in the header in **sp_signature** key.
+In short, make signature as `hash('sha256', response . your_secret_key)` and match it with the signature provided in the header in **Signature** key.
 
 
 # HTTP Status Codes and Events
@@ -776,3 +776,4 @@ Date            | Description
 28 Jan 2019     | Added a new event `request.deleted` which is returned whenever a request is deleted.
 28 Jan 2019     | Status response now returns proofs also.
 28 Jan 2019     | Added `show_results` key in request which allows end-susers see verification results.
+18 Feb 2019     | `Signature` key added into SP Http, Callback headers for signature validation.
