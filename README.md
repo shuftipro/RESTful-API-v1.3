@@ -15,11 +15,11 @@ On-site verification means that the customer will come on Shufti Pro’s site an
 Merchant provides us with the keys, not the data. Example: name: “ ”.
 This means that the merchant has opted for name verification but has not sent any data.
 We have to extract the data, from the user’s provided documents, at our end, and then verify it as well. 
-Consult [This Document](on-site_with_ocr/on-site_with_ocr.md) for complete On-site Verification with OCR.
+Consult [This Document](on-site_with_ocr/README.md) for complete On-site Verification with OCR.
 	
 * ### Without OCR
 Merchant provides us with the keys, along with the data. Example: issue_date: “2016-07-16”. This means that the merchant has opted for issue date verification with the verification data. We have to simply verify that information, no data extraction is required. 
-Consult [This Document](on-site_without_ocr/on-site_without_ocr.md) for complete On-site Verification without OCR.
+Consult [This Document](on-site_without_ocr/readme.md) for complete On-site Verification without OCR.
 
 ## Off-site Verification
 Off-site verification means that the customer will not come on Shufti Pro’s site to get verified. They will do it through the merchant’s platform. Merchant will collect the information and send us the data for verification. Merchant provides us with the proofs (images/videos). We will not collect them directly from the user. 
@@ -27,11 +27,11 @@ Off-site verification means that the customer will not come on Shufti Pro’s si
     
 * ### With OCR
 In off-site verification with OCR means that the merchant has not provided us proofs (images/videos) and also no data in some keys. In this verification Shufti Pro will perform extraction of data from those proofs and finally verify the data. 
-Consult [This Document](off-site_with_ocr/off-site_with_ocr.md) for complete Off-site Verification with OCR. 
+Consult [This Document](off-site_with_ocr/readme.md) for complete Off-site Verification with OCR. 
 	
 * ### Without OCR
 If Merchant gives us the data in keys as well as all the proofs required then Shufti Pro just have to verify the data. No customer interaction takes place in this kind of verification.
-Consult [This Document](off-site_without_ocr/off-site_without_ocr.md) for complete Off-site Verification without OCR.
+Consult [This Document](off-site_without_ocr/readme.md) for complete Off-site Verification without OCR.
 
 # Authorization
 
@@ -187,6 +187,24 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	This parameter allows users to upload images or videos in case of nonavailability of a functional webcam.If value: 0, users can capture photos/videos with the camera only.	
 
+* ## show_consent
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**
+
+	This parameter displays a screen to collect consent from end-user before the verification process starts. If the value is set 1, the screen will be displayed to end-user. If the value is set 0, the consent screen will not be displayed. Under the GDPR, we are bound to get user’s consent therefore the default value is 1 but you can set it to 0 if you’ve already acquired the user’s consent for this biometric verification.
+
+* ## show_privacy_policy
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**
+
+	This parameter displays data privacy policy to end-user after the verification process is completed. If the value is set 1, the data privacy policy will be displayed to end-user. If the value is set 0, the data privacy policy will not be displayed. Under the GDPR, we acknowledge the end users right to request for data deletion therefore the default value is 1 but you can set it to 0 if you’ve have another alternative mechanism in place.
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## show_results
 
@@ -210,6 +228,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Video Format: **MP4/MOV** Maximum: **20MB**
 
 	Provide valid **BASE64** encoded string. Leave empty for an on-site verification.
+
+	* <h3>allow_offline</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**  
+
+	This parameter allows user to upload their selfie in case of non-availability of a functional webcam. If value is 0, users can only perform Face Verification with the camera only.  
 
 
 
@@ -340,6 +367,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Provide a valid date. Please note that the date should be after today. 
 	Example 2025-12-31
 
+	* <h3>allow_offline</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**  
+
+	This parameter allows user to upload their document in case of non-availability of a functional webcam. If value is 0, users can only perform Document Verification with the camera only.    
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## address
 
@@ -431,6 +467,24 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
+	* <h3>address_fuzzy_match</h3>
+
+	 Required: **No**  
+	 Type: **string**  
+	 Accepted Values: **0, 1**  
+	 Default Values: **1**
+
+	 Provide 1 for enabling a fuzzy match for address verification. Enabling fuzzy matching attempts to find a match which is not 100% accurate. Default value will be 0, which means that only 100% accurate address will be verified.
+
+	* <h3>allow_offline</h3>
+
+	 Required: **No**  
+	 Type: **string**  
+	 Accepted Values: **0, 1**  
+	 Default Values: **1**  
+
+	 This parameter allows user to upload their Address Document in case of non-availability of a functional webcam. If value is 0, users can only perform Address Verification with the camera only.  
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
 	
@@ -466,6 +520,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Maximum: **100 chracters**
 
 	Provide text in the string format which will be verified from a given proof.
+
+	* <h3>allow_offline</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**  
+
+	This parameter allows user to upload their Consent Document (Handwritten Note/printed document) in case of non-availability of a functional webcam. If value is 0, users can only perform Consent Verification with the camera only.  
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## phone
@@ -836,3 +899,6 @@ Date            | Description
 28 Jan 2019     | Status response now returns proofs also.
 28 Jan 2019     | Added `show_results` key in request which allows end-susers see verification results.
 18 Feb 2019     | `Signature` key added into SP Http, Callback headers for signature validation.
+19 Feb 2019     | Added `show_consent` and `show_privacy_policy` parameters in verification request.
+19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
+19 Feb 2019     | Added `allow_offline` parameter in face, document, address and consent services.
