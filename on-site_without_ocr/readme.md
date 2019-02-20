@@ -843,3 +843,4 @@ Date            | Description
 19 Feb 2019     | Added `show_consent` and `show_privacy_policy` parameters in verification request.
 19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
 19 Feb 2019     | Added `allow_offline` parameter in face, document, address and consent services.
+20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.

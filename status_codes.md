@@ -139,6 +139,9 @@ request.deleted   | Request has been deleted.|Yes|Yes
       "issue_date": "2015-10-10",
       "expiry_date": "2025-12-31",
       "document_number": "1456-0989-5567-0909",
+      "selected_type": [
+        "id_card"
+      ],
       "supported_types": [
         "id_card",
         "driving_license",
@@ -152,6 +155,9 @@ request.deleted   | Request has been deleted.|Yes|Yes
         "last_name": "Doe"
       },
       "full_address": "3339 Maryland Avenue, Largo, Florida",
+      "selected_type": [
+        "id_card"
+      ],
       "supported_types": [
         "id_card",
         "bank_statement"
@@ -194,6 +200,9 @@ request.deleted   | Request has been deleted.|Yes|Yes
       "issue_date": "2015-10-10",
       "expiry_date": "2025-12-31",
       "document_number": "1456-0989-5567-0909",
+      "selected_type": [
+        "id_card"
+      ],
       "supported_types": [
         "id_card",
         "driving_license",
@@ -207,6 +216,9 @@ request.deleted   | Request has been deleted.|Yes|Yes
         "last_name": "Doe"
       },
       "full_address": "3339 Maryland Avenue, Largo, Florida",
+      "selected_type": [
+        "id_card"
+      ],
       "supported_types": [
         "id_card",
         "bank_statement"

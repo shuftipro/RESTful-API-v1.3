@@ -751,3 +751,4 @@ Date            | Description
 18 Feb 2019     | `Signature` key added into SP Http, Callback headers for signature validation.
 19 Feb 2019     | Added `show_consent` and `show_privacy_policy` parameters in verification request.
 19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
+20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.
