@@ -158,24 +158,6 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' mode, you can only send base64 of videos where format should be MP4 or MOV in proofs. In 'any' mode mixture of images and videos can be provided in proofs.
 
-* ## show_consent
-
-	Required: **No**  
-	Type: **string**  
-	Accepted Values: **0, 1**  
-	Default Values: **1**
-
-	This parameter displays a screen to collect consent from end-user before the verification process starts. If the value is set 1, the screen will be displayed to end-user. If the value is set 0, the consent screen will not be displayed. Under the GDPR, we are bound to get user’s consent therefore the default value is 1 but you can set it to 0 if you’ve already acquired the user’s consent for this biometric verification.
-
-* ## show_privacy_policy
-
-	Required: **No**  
-	Type: **string**  
-	Accepted Values: **0, 1**  
-	Default Values: **1**
-
-	This parameter displays data privacy policy to end-user after the verification process is completed. If the value is set 1, the data privacy policy will be displayed to end-user. If the value is set 0, the data privacy policy will not be displayed. Under the GDPR, we acknowledge the end users right to request for data deletion therefore the default value is 1 but you can set it to 0 if you’ve have another alternative mechanism in place.
-
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
 
@@ -324,6 +306,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Type: **string**  
 	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
 	Video Format: **MP4/MOV** Maximum: **20MB**
+
+	* <h3>additional_proof</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
+	Video Format: **MP4/MOV** Maximum: **20MB**
+
+	Provide valid **BASE64** encoded string. If provided, the address visible on this 'additional_proof' will be compared with the address given on 'proof' document. Use this parameter only if you want us to verify address from two different address documents.
 
 	* <h3>supported_types</h3>
 
@@ -752,3 +743,4 @@ Date            | Description
 19 Feb 2019     | Added `show_consent` and `show_privacy_policy` parameters in verification request.
 19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
 20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.
+21 Feb 2019     | Added `additional_proof` key in address service.
