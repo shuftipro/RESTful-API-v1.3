@@ -56,7 +56,7 @@ Host: shuftipro.com
 	"address":{ 
 		"full_address":"", 
 		"name": "", 
-		"expiry_date": "",
+		"issue_date": "",
 		"supported_types":[
 			"id_card", 
 			"utility_bill", 
@@ -362,6 +362,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Leave empty to perform data extraction from the uploaded proof. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
 
+	* <h3>address_fuzzy_match</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**
+
+	Provide 1 for enabling a fuzzy match for address verification. Enabling fuzzy matching attempts to find a match which is not 100% accurate. Default value will be 0, which means that only 100% accurate address will be verified.
+	
 	* <h3>name</h3>
 
 	Required: **No**  
@@ -415,15 +424,6 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Leave empty to perform data extraction from the proof which will be uploaded by end-users. Provide a valid date. Please note that the date should be before today. 
 	Example 2015-12-31
-	
-	* <h3>address_fuzzy_match</h3>
-
-	Required: **No**  
-	Type: **string**  
-	Accepted Values: **0, 1**  
-	Default Values: **1**
-
-	Provide 1 for enabling a fuzzy match for address verification. Enabling fuzzy matching attempts to find a match which is not 100% accurate. Default value will be 0, which means that only 100% accurate address will be verified.
 
 	* <h3>allow_offline</h3>
 
