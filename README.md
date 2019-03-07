@@ -81,6 +81,7 @@ Host: shuftipro.com
 		"proof":"" ,
 		"full_address":"", 
 		"name": "",
+		"issue_date": "",
 		"supported_types":[]
 	},
 	
@@ -419,6 +420,16 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	 Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
 
+	* <h3>issue_date</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Format: **yyyy-mm-dd**
+
+	Provide a valid date. Please note that the date should be before today. 
+	Example 2015-12-31
+	
+	
 	* <h3>name</h3>
 
 	Required: **No**  
@@ -903,3 +914,4 @@ Date            | Description
 19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
 19 Feb 2019     | Added `allow_offline` parameter in face, document, address and consent services.
 20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.
+7 Mar 2019      | Added `issue_date` key in address service request parameters.
