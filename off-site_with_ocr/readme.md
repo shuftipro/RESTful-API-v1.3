@@ -59,7 +59,7 @@ Host: shuftipro.com
 		"proof":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QoPAxIb88htFgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACxSURBVBjTdY6xasJgGEXP/RvoonvAd8hDyD84+BZBEMSxL9GtQ8Fis7i6BkGI4DP4CA4dnQON3g6WNjb2wLd8nAsHWsR3D7JXt18kALFwz2dGmPVhJt0IcenUDVsgu91eCRZ9IOMfAnBvSCz8I3QYL0yV6zfyL+VUxKWfMJuOEFd+dE3pC1Finwj0HfGBeKGmblcFTIN4U2C4m+hZAaTrASSGox6YV7k+ARAp4gIIOH0BmuY1E5TjCIUAAAAASUVORK5CYII=" ,
 		"full_address":"", 
 		"name": "",
-		"expiry_date": "",
+		"issue_date": "",
 		"supported_types":[
 			"id_card", 
 			"utiltiy_bill", 
@@ -347,6 +347,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Maximum: **250 chracters**
 
 	Leave empty to perform data extraction from provided proofs. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
+	
+	* <h3>address_fuzzy_match</h3>
+
+	 Required: **No**  
+	 Type: **string**  
+	 Accepted Values: **0, 1**  
+	 Default Values: **1**
+
+	 Provide 1 for enabling a fuzzy match for address verification. Enabling fuzzy matching attempts to find a match which is not 100% accurate. Default value will be 0, which means that only 100% accurate address will be verified.
 
 	* <h3>issue_date</h3>
 
@@ -402,15 +411,6 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Value Accepted: **1**
 
 	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
-
-	* <h3>address_fuzzy_match</h3>
-
-	 Required: **No**  
-	 Type: **string**  
-	 Accepted Values: **0, 1**  
-	 Default Values: **1**
-
-	 Provide 1 for enabling a fuzzy match for address verification. Enabling fuzzy matching attempts to find a match which is not 100% accurate. Default value will be 0, which means that only 100% accurate address will be verified.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## consent
