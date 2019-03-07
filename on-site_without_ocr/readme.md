@@ -63,6 +63,7 @@ Host: shuftipro.com
 			"middle_name": "Doe" ,
 			"fuzzy_match": "1"
 		}, 
+		"issue_date": "2015-10-10", 
 		"supported_types":[
 			"id_card", 
 			"utiltiy_bill", 
@@ -424,6 +425,16 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not a 100% accurate.
 
+	* <h3>expiry_date</h3>
+
+	Required: **No**  
+	Type: **string**  
+	Format: **yyyy-mm-dd**
+
+	Provide a valid date. Please note that the date should be after today. 
+	Example 2025-12-31
+
+	
 	* <h3>address_fuzzy_match</h3>
 
 	Required: **No**  
@@ -844,3 +855,4 @@ Date            | Description
 19 Feb 2019     | Added `address_fuzzy_match` parameter in address service.
 19 Feb 2019     | Added `allow_offline` parameter in face, document, address and consent services.
 20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.
+7 Mar 2019      | Added `issue_date` key in address service request parameters.
