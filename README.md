@@ -216,7 +216,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	This parameter will only work for onsite verification. If Value for this parameter is 1, verification result will be displayed to the end user, showing them whether their verification is accepted or declined. If the value of this parameter is set 0, verification results will not be shown to end-user. 
 
-	In case of offsite verification id show_results is set to 0, then a `request.received` callback is returned in case of a valid verification.
+	In case of offsite verification if show_results is set to 0, then a `request.received` callback is returned in case of a valid verification.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
@@ -777,13 +777,13 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 	This contains all the proofs that were used to verify data. The Proof URLs returned are temporary and valid for **15 minutes only**.
 
 * <h3>verification_data</h3>
-	This contains all the data used for verification.
+	This contains all the data used for verification. This will only be returned in case of `verification.accepted` or `verification.declined`.
 
 * <h3>verification_result</h3>
-	This is the complete result of the verification. 1 stands for verified, 0 for not verified and null for no verification performed.
+	This is the complete result of the verification. 1 stands for verified, 0 for not verified and null for no verification performed. This will only be returned in case of `verification.accepted` or `verification.declined`.
 
 * <h3>declined_reason</h3>
-	This key will only be returned when event is verification.declined. This will contain the reason why verification was declined.
+	This key will only be returned when event is verification.declined. This will contain the reason why `verification was declined`.
 
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.

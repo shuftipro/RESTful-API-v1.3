@@ -660,13 +660,13 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 	This contains all the proofs that were used to verify data. The Proof URLs returned are temporary and valid for **15 minutes only**.
 
 * <h3>verification_data</h3>
-	This contains all the data used for verification.
+	This contains all the data used for verification. This will only be returned in case of `verification.accepted` or `verification.declined`.
 
 * <h3>verification_result</h3>
-	This is the complete result of the verification. 1 stands for verified, 0 for not verified and null for no verification performed.
+	This is the complete result of the verification. 1 stands for verified, 0 for not verified and null for no verification performed. This will only be returned in case of `verification.accepted` or `verification.declined`.
 
 * <h3>declined_reason</h3>
-	This key will only be returned when event is verification.declined. This will contain the reason why verification was declined.
+	This key will only be returned when event is verification.declined. This will contain the reason why `verification was declined`.
 
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
