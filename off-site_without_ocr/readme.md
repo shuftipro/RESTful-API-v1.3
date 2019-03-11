@@ -171,6 +171,15 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 	Verification mode defines what types of proofs are allowed for a verification. In case of 'video_only' mode, you can only send base64 of videos where format should be MP4 or MOV in proofs. In 'any' mode mixture of images and videos can be provided in proofs.
 
+* ## show_results
+
+	Required: **No**  
+	Type: **string**  
+	Accepted Values: **0, 1**  
+	Default Values: **1**  
+
+	If Value for this parameter is 1, verification result will be displayed to the end user, showing them whether their verification is accepted or declined. If the value of this parameter is set 0, verification results will not be shown to end-user and a `request.received` callback will be returned in case of a valid verification.
+
 <!-- -------------------------------------------------------------------------------- -->
 * ## face
 
@@ -660,6 +669,15 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 * <h3>proof</h3>
 	This contains all the proofs that were used to verify data. The Proof URLs returned are temporary and valid for **15 minutes only**.
 
+* <h3>verification_data</h3>
+	This contains all the data used for verification.
+
+* <h3>verification_result</h3>
+	This is the complete result of the verification. 1 stands for verified, 0 for not verified and null for no verification performed.
+
+* <h3>declined_reason</h3>
+	This key will only be returned when event is verification.declined. This will contain the reason why verification was declined.
+
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
 </aside>
@@ -686,6 +704,80 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
         "consent": {
             "proof": "https://shuftipro.com/api/storage/aZa8mncOFLrbtxXk7Ka/consent/proof.png?access_token=1a6c9985e88051092b31d62d043"
         } 
+    },
+    "verification_data": {
+        "document": {
+            "issue_date": "1990-01-01",
+            "selected_type": [
+                "id_card"
+            ],
+            "supported_types": [
+                "id_card",
+                "passport",
+                "driving_license",
+                "credit_or_debit_card"
+            ]
+        },
+        "address": {
+            "full_address": "Candyland Avenue",
+            "selected_type": [
+                "utility_bill"
+            ],
+            "supported_types": [
+                "utility_bill",
+                "driving_license",
+                "bank_statement",
+                "envelope",
+                "id_card",
+                "passport",
+                "rent_agreement",
+                "employer_letter",
+                "insurance_agreement",
+                "tax_bill"
+            ]
+        },
+        "consent": {
+            "text": "Hi, I agree your terms",
+            "selected_type": [
+                "handwritten"
+            ],
+            "supported_types": [
+                "handwritten",
+                "printed"
+            ]
+        },
+        "background_checks": {
+            "dob": "1990-01-01",
+            "name": {
+                "last_name": "John",
+                "first_name": "Doe"
+            }
+        }
+    },
+    "verification_result": {
+        "background_checks": 1,
+        "consent": {
+            "consent": 1,
+            "selected_type": 1
+        },
+        "address": {
+            "partial_address_match_with_id_and_utility_bill": 1,
+            "full_address": 1,
+            "address_document_visibility": 1,
+            "address_document_must_not_be_expired": 1,
+            "address_document": 1,
+            "address_document_country": 1,
+            "selected_type": 1
+        },
+        "document": {
+            "issue_date": 1,
+            "document_visibility": 1,
+            "document_must_not_be_expired": 1,
+            "document": 1,
+            "document_country": 1,
+            "selected_type": 1
+        },
+        "face": 1
     }
 }
 ```
@@ -776,3 +868,6 @@ Date            | Description
 20 Feb 2019     | Added `selected_type` key in address, document, consent services webhooh/callback response.
 21 Feb 2019     | Added `additional_proof` key in address service.
 7 Mar 2019      | Added `issue_date` key in address service request parameters.
+11 Mar 2019		| Added new params `verification_data`, `verification_result` and `declined_reason` in verification status endpoint.
+11 Mar 2019		| Added a new event `request.received`
+11 Mar 2019     | Added `show_results` key in request which allows end-users see verification results.

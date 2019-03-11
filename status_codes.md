@@ -34,10 +34,11 @@ verification.accepted   | Request was valid and accepted after verification.|Yes
 verification.declined   | Request was valid and declined after verification.|Yes|Yes
 verification.status.changed   | Request status has been updated.|No|Yes
 request.deleted   | Request has been deleted.|Yes|Yes
+request.received   | Request has been received.|Yes|Yes
 
 
 <aside class="notice">
-  In case of off-site verification, <b>verification.accepted</b> or <b>verification.declined</b> is returned in event when request is valid after verification. In case of <b>verification.status.changed</b> a callback is sent to notify a client that the verification status has been updated.
+  In case of off-site verification, <b>verification.accepted</b> or <b>verification.declined</b> is returned in event when request is valid after verification. In case of <b>verification.status.changed</b> a callback is sent to notify a client that the verification status has been updated. <b>request.received</b> is sent when results are disallowed in a verification request.
 </aside>
 
 **Following are some sample events responses**  
@@ -243,5 +244,16 @@ request.deleted   | Request has been deleted.|Yes|Yes
 {
     "reference": "17374217",
     "event": "request.deleted"
+}
+```
+
+> request.received
+
+```json
+{
+    "reference": "17374217",
+    "event": "request.received",
+    "email": "johndoe@example.com",
+    "country": "UK"
 }
 ```
