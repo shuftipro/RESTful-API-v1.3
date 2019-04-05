@@ -123,7 +123,7 @@ All verification services are optional. You can provide Shufti Pro a single serv
 	Type: **string**  
 	Length: **2 characters**
 
-	Send the 2 characters long [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country code of where your customer is from. Please consult [Supported Countries](countries.md) for country codes.
+	You may omit this parameter if you don't want to enforce country verification. If a valid country code is provided, then the proofs for document verification or address verification must be from the same country. Country code must be a valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country code. Please consult Supported Countries for country codes.
 
 * ## language
 
@@ -851,3 +851,4 @@ Date            | Description
 11 Mar 2019		| Added new params `verification_data`, `verification_result` and `declined_reason` in verification status endpoint.
 11 Mar 2019		| Added a new event `request.received`
 11 Mar 2019     | Added `show_results` key in request which allows end-users see verification results.
+05 Apr 2019		| `country` key updated.
