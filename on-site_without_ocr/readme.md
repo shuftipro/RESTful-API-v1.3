@@ -126,7 +126,9 @@ All verification services are optional. You can provide Shufti Pro a single serv
 
 * ## country
 
-	Required: **Yes** Type: **string** Length: **2 characters**
+	Required: **No** 
+	Type: **string** 
+	Length: **2 characters**
 
 	You may omit this parameter if you don't want to enforce country verification. If a valid country code is provided, then the proofs for document verification or address verification must be from the same country. Country code must be a valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country code. Please consult Supported Countries for country codes.
 
