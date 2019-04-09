@@ -624,6 +624,48 @@ Once a verification request is completed, you may request at delete request endp
 
 	Add a comment why the request is deleted.
 
+# Account Info Request Sample  
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3fe30d3900092464980f)
+
+```json
+GET /api/account/info/ HTTP/1.1
+Host: shuftipro.com
+  Content-Type: application/json
+  Authorization: Basic NmI4NmIyNzNmZjM0ZmNlMTlkNmI4WJRTUxINTJHUw== 
+
+```
+
+## Account Info Request
+
+This end-point will provide information to the customer about their account balance and status of their account that whether they are in production or trial Mode.   
+
+## Account Info Sample Response
+
+```json
+{
+    "account": {
+        "name": "your account name",
+        "status": "production",
+        "balance": {
+            "amount": "99.85",
+            "currency": "USD"
+        }
+    }
+}
+{
+    "account": {
+        "name": "your account name",
+        "status": "trial",
+        "balance": {
+            "amount": "99.85",
+            "currency": "USD"
+        }
+    }
+}
+```
+
+
 # Responses
 
 ## Verification Response
@@ -921,3 +963,4 @@ Date            | Description
 11 Mar 2019		| Added new params `verification_data`, `verification_result` and `declined_reason` in verification status endpoint.
 11 Mar 2019		| Added a new event `request.received`
 05 Apr 2019		| `country` key updated.
+09 Apr 2019     | Added a new endpoint `/api/account/info/` to get account info.
